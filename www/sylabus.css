@@ -1,14 +1,7 @@
 body{
+    width:65%;
+    min-width: 800px; 
     margin:auto;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-@media screen and (orientation:landscape){
-    body{
-        width:65%;
-        min-width: 800px; 
-        font-size:1.2em;
-    }
 }
 
 @media screen and (orientation:portrait){
@@ -23,4 +16,12 @@ header{
 }
 .table {
     margin-bottom: 30px;
+}
+table {
+    width: 100%;
+    border: 1px solid black;
+}
+table tr td {
+    border: 1px solid black;
+    padding: 5px;
 }
