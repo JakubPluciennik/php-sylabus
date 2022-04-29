@@ -1,0 +1,27 @@
+body{
+    width:65%;
+    min-width: 800px; 
+    margin:auto;
+}
+
+@media screen and (orientation:portrait){
+    body{
+        width:100%;
+    }
+}
+
+
+header{
+    font-size: 2em;
+}
+.table {
+    margin-bottom: 30px;
+}
+table {
+    width: 100%;
+    border: 1px solid black;
+}
+table tr td {
+    border: 1px solid black;
+    padding: 5px;
+}
