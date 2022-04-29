@@ -1,0 +1,17 @@
+{
+    "name": "pluci/php-sylabus",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jakub Płuciennik",
+            "email": "pluciennik.jakub@gmail.com"
+        }
+    ],
+    "require": {
+        "mpdf/mpdf": "^6.1",
+        "phpoffice/phpspreadsheet": "^1.23"
+    },
+    "config": {
+        "vendor-dir": "composer_vendor"
+    }
+}
