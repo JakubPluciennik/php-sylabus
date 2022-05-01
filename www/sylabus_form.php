@@ -30,17 +30,84 @@
             autoresize_bottom_margin: 0,
             toolbar: 'bold italic | alignleft aligncenter alignright alignjustify | numlist bullist  | outdent indent ',
         });
+
+        function addRow(obj, type, value, cell_name) {
+            value++;
+
+            let row = `<tr><td>${type}${value}</td>
+                        <td><textarea name="${type}[][content]" class=""></textarea></td>
+                        <td class="right-columns"><input class="input-text" name="${type}[][relation]" type="text"></td>
+                        <td class="right-columns">
+                            <select class="input-list" name="${type}[][impact]">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td></tr>`;
+            $(obj).closest('tr').before(row);
+            $("#" + cell_name).attr('rowspan', value + 1);
+            $(obj).closest('button').next().removeClass('d-none');
+            tinymce.init({
+                selector: 'textarea',
+                menubar: false,
+                statusbar: false,
+                mode: 'textareas',
+                plugins: [
+                    'autoresize',
+                    'lists',
+                    'advlist',
+                ],
+                autoresize_bottom_margin: 0,
+                toolbar: 'bold italic | alignleft aligncenter alignright alignjustify | numlist bullist  | outdent indent ',
+            });
+        }
+
+        function removeRow(obj, type, value, cell_name) {
+            $(obj).closest('tr').prev("tr").remove();
+            $("#" + cell_name).attr('rowspan', value);
+            if (value == 2) {
+                $(obj).addClass('d-none');
+            }
+        }
+
         let wValue = 1;
         let uValue = 1;
         let kValue = 1;
-        $(document).ready(
-            function() {
-                $("#add-w").click(function() {
-                    wValue++;
-                    
-                });
-            }
-        );
+
+        $(document).ready(function() {
+            $("#add-w").click(function() {
+                addRow(this, "W", wValue, "knowledge");
+                wValue++;
+            });
+
+            $("#add-u").click(function() {
+                addRow(this, "U", uValue, "skills");
+                uValue++;
+            });
+
+            $("#add-k").click(function() {
+                addRow(this, "K", kValue, "competences");
+                kValue++;
+            });
+            $("#remove-w").click(function() {
+                if (wValue > 1) {
+                    removeRow(this, "W", wValue, "knowledge");
+                    wValue--;
+                }
+            });
+            $("#remove-u").click(function() {
+                if (uValue > 1) {
+                    removeRow(this, "U", uValue, "skills");
+                    uValue--;
+                }
+            });
+            $("#remove-k").click(function() {
+                if (kValue > 1) {
+                    removeRow(this, "K", kValue, "competences");
+                    kValue--;
+                }
+            });
+        });
     </script>
 </head>
 
@@ -175,8 +242,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4"><button type="button" class="btn btn-primary" id="add-w">Dodaj wiersz</button>
-                            <button type="button" class="btn btn-danger float-end" id="delete-w">Usuń wiersz</button>
+                        <td colspan="4" class="buttons"><button type="button" class="btn btn-primary" id="add-w">Dodaj wiersz</button>
+                            <button type="button" class="btn btn-danger float-end d-none" id="remove-w">Usuń wiersz</button>
                         </td>
                     </tr>
                     <tr>
@@ -194,8 +261,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4"><button type="button" class="btn btn-primary" id="add-u">Dodaj wiersz</button>
-                            <button type="button" class="btn btn-danger float-end" id="delete-u">Usuń wiersz</button>
+                        <td colspan="4" class="buttons"><button type="button" class="btn btn-primary" id="add-u">Dodaj wiersz</button>
+                            <button type="button" class="btn btn-danger float-end d-none" id="remove-u">Usuń wiersz</button>
                         </td>
                     </tr>
                     <tr>
@@ -213,8 +280,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4"><button type="button" class="btn btn-primary" id="add-k">Dodaj wiersz</button>
-                            <button type="button" class="btn btn-danger float-end" id="delete-k">Usuń wiersz</button>
+                        <td colspan="4" class="buttons"><button type="button" class="btn btn-primary" id="add-k">Dodaj wiersz</button>
+                            <button type="button" class="btn btn-danger float-end d-none" id="remove-k">Usuń wiersz</button>
                         </td>
                     </tr>
                     <tr>
