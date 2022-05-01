@@ -1,90 +1,117 @@
-body{
-    width:65%;
-    min-width: 800px; 
-    margin:auto;
+body {
+    width: 65%;
+    min-width: 800px;
+    margin: auto;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-@media only screen and (orientation:portrait){
-    body{
-        width:100%;
-    }
-}
-@media only print{
-    body{
-        font-size: 0.7em;
-        padding-left:40px;
-        padding-right: 20px;
-    }
-    #submit{
-        display:none;
+@media only screen and (orientation:portrait) {
+    body {
+        width: 100%;
     }
 }
 
-header{
+@media only print {
+    body {
+        font-size: 0.7em;
+        padding-left: 40px;
+        padding-right: 20px;
+    }
+
+    #submit {
+        display: none;
+    }
+}
+
+header {
     font-size: 2em;
     font-weight: bold;
     text-align: center;
-    padding:20px;
+    padding: 20px;
 
 }
+
 table {
     width: 100%;
     border: 1px solid black;
     border-collapse: collapse;
 }
+
 table tr td {
     border: 1px solid black;
-    padding: 5px;
 }
+
 .table {
     margin-bottom: 30px;
 }
-.ects{
+
+.ects {
     font-weight: bold;
-    border:2px solid black;
+    border: 2px solid black;
     text-align: center;
-    width:50px;
+    width: 50px;
 }
-.ects:nth-of-type(2n){
+
+.ects:nth-of-type(2n) {
     background-color: #f2f2f2;
 }
-#pt2{
+
+#pt2 {
     background-color: #f2f2f2;
 }
-.align-right{
+
+.align-right {
     text-align: right;
 }
-.left-column{
-    width:30%;
+
+.left-column {
+    width: 30%;
 }
-.right-columns{
-    width:8%;
+
+.right-columns {
+    width: 8%;
     text-align: center;
 }
-#year{
-    padding: 20px;
-    font-weight: bold;
+
+#submit {
+    position: fixed;
+    top: 3px;
+    right: 3px;
 }
-#submit{
-    position:fixed;
-    top:3px;
-    right:3px;
+#submit input {
+    display: block;
+    margin-bottom: 20px;
+    width: 150px;
+    height: 50px;
 }
-#submit input{
-    display:block;
-    margin-bottom:20px;
-    width:150px;
-    height:50px;
-}
-input{
-    width:100%;
-    margin:0px;
-    padding:5px;
-}
-textarea{
-    width:100%;
+input[type=text] {
+    width: 100%;
     height: 100%;
-    margin:0px;
-    padding:5px;
+    margin: 0px;
+    padding: 5px;
+}
+
+input[type='radio'] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: white;
+    border: 1px solid black;
+    width: 1rem;
+    height: 1rem;
+    margin-right:5px;
+    margin-left: 5px;
+}
+
+input[type='radio']:checked {
+    background: #333;
+}
+#pt4 input {
+
+    width:50%;
+    display: inline;
 }
