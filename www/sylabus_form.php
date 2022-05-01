@@ -15,8 +15,10 @@
     <link rel="stylesheet" href="sylabus.css">
     <script src="..\composer_vendor\tinymce\tinymce\tinymce.min.js" referrerpolicy="origin"></script>
     <script type="text/javascript" src="..\composer_vendor\tinymce\tinymce\jquery.tinymce.min.js"></script>
-    <script src="..\composer_vendor\components\jquery\jquery.min.js" type="text/javascript"></script>
+    <script src="..\composer_vendor\components\jquery\jquery.min.js" type="text/javascript"></script>   
     <script>
+
+        //Inicjalizacja TinyMCE
         tinymce.init({
             selector: 'textarea',
             menubar: false,
@@ -31,9 +33,11 @@
             toolbar: 'bold italic | alignleft aligncenter alignright alignjustify | numlist bullist  | outdent indent ',
         });
 
+        // Dodanie wiersza dla danego typu (W,U,K)
         function addRow(obj, type, value, cell_name) {
             value++;
 
+            //Szablon wiersza
             let row = `<tr><td>${type}${value}</td>
                         <td><textarea name="${type}[${value-1}][content]" class=""></textarea></td>
                         <td class="right-columns"><input class="input-text" name="${type}[${value-1}][relation]" type="text"></td>
@@ -44,9 +48,13 @@
                                 <option value="3">3</option>
                             </select>
                         </td></tr>`;
+
+            //Najbliższy wiersz przed obiektem z button
             $(obj).closest('tr').before(row);
             $("#" + cell_name).attr('rowspan', value + 1);
             $(obj).closest('button').next().removeClass('d-none');
+
+            //aktualizacja tinymce
             tinymce.init({
                 selector: 'textarea',
                 menubar: false,
@@ -62,9 +70,13 @@
             });
         }
 
+        //Usuwanie wiersza dla danego typu (W,U,K)
         function removeRow(obj, type, value, cell_name) {
-            $(obj).closest('tr').prev("tr").remove();
+            //Najbliższy wiersz przed obiektem z button
+            $(obj).closest('tr').prev('tr').remove();
             $("#" + cell_name).attr('rowspan', value);
+
+            //Jeśli nie ma już wierszy to ukryj button
             if (value == 2) {
                 $(obj).addClass('d-none');
             }
