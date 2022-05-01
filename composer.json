@@ -8,7 +8,6 @@
         }
     ],
     "require": {
-        "mpdf/mpdf": "^6.1",
         "phpoffice/phpspreadsheet": "^1.23",
         "tinymce/tinymce": "^6.0",
         "components/jquery": "^3.6"

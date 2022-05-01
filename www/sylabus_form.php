@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="sylabus.css">
     <script src="..\composer_vendor\tinymce\tinymce\tinymce.min.js" referrerpolicy="origin"></script>
     <script type="text/javascript" src="..\composer_vendor\tinymce\tinymce\jquery.tinymce.min.js"></script>
-    <script src="..\composer_vendor\jquery\jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="..\composer_vendor\components\jquery\jquery.min.js" type="text/javascript"></script>
     <script>
         tinymce.init({
             selector: 'textarea',
@@ -35,10 +35,10 @@
             value++;
 
             let row = `<tr><td>${type}${value}</td>
-                        <td><textarea name="${type}[][content]" class=""></textarea></td>
-                        <td class="right-columns"><input class="input-text" name="${type}[][relation]" type="text"></td>
+                        <td><textarea name="${type}[${value-1}][content]" class=""></textarea></td>
+                        <td class="right-columns"><input class="input-text" name="${type}[${value-1}][relation]" type="text"></td>
                         <td class="right-columns">
-                            <select class="input-list" name="${type}[][impact]">
+                            <select class="input-list" name="${type}[${value-1}][impact]">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -112,15 +112,12 @@
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
     <header>
         <div class="title">Formularz sylabusu</div>
     </header>
     <main>
-        <form action="wynik.php" method="post">
-            <div id="pt1" class="table">
+        <form action="sylabus_print.php" method="post">
+            <div id="pt1" class="table-div">
                 <table>
                     <tr>
                         <td class="left-column">Nazwa zajęć/
@@ -141,7 +138,7 @@
                     </tr>
                 </table>
             </div>
-            <div id="pt2" class="table">
+            <div id="pt2" class="table-div">
                 <table>
                     <tr>
                         <td colspan="2">Język kursu/
@@ -154,7 +151,8 @@
                     <tr>
                         <td rowspan="2">Typ studiów/
                             Form of studies: </td>
-                        <td><input type="radio" name="studies-form" id="stacjonarne" value="stacjonarne"> stacjonarne</td>
+                        <td><input type="radio" name="studies-form" id="stacjonarne" value="stacjonarne"> stacjonarne/
+                            intramural</td>
                         <td rowspan="2">Status zajęć/
                             Course status</td>
                         <td><input type="radio" name="course-status1" id="basic" value="basic">podstawowe/
@@ -167,7 +165,8 @@
                             winter semester</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" name="studies-form" id="niestacjonarne" value="niestacjonarne">niestacjonarne</td>
+                        <td><input type="radio" name="studies-form" id="niestacjonarne" value="niestacjonarne">niestacjonarne/
+                            extramural</td>
                         <td><input type="radio" name="course-status1" id="major" value="major">kierunkowe/
                             major</td>
                         <td><input type="radio" name="course-status2" id="elective" value="elective">do wyboru/
@@ -185,7 +184,7 @@
                     </tr>
                 </table>
             </div>
-            <div id="pt3" class="table">
+            <div id="pt3" class="table-div">
                 <table>
                     <tr>
                         <td colspan="2" class="left-column">Koordynator zajęć/
@@ -231,10 +230,10 @@
                         <td rowspan="2" id="knowledge">Wiedza (absolwent zna i rozumie)/
                             Knowledge: (the graduate knows and understands)</td>
                         <td>W1</td>
-                        <td><textarea name="W[][content]" class=""></textarea></td>
-                        <td class="right-columns"><input class="input-text" name="W[][relation]" type="text"></td>
+                        <td><textarea name="W[0][content]" class=""></textarea></td>
+                        <td class="right-columns"><input class="input-text" name="W[0][relation]" type="text"></td>
                         <td class="right-columns">
-                            <select class="input-list" name="W[][impact]">
+                            <select class="input-list" name="W[0][impact]">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -250,10 +249,10 @@
                         <td rowspan="2" id="skills">Umiejętności (absolwent potrafi)/
                             Skills: (the graduate is able to)</td>
                         <td>U1</td>
-                        <td><textarea name="U[][content]" class=""></textarea></td>
-                        <td class="right-columns"><input class="input-text" name="U[][relation]" type="text"></td>
+                        <td><textarea name="U[0][content]" class=""></textarea></td>
+                        <td class="right-columns"><input class="input-text" name="U[0][relation]" type="text"></td>
                         <td class="right-columns">
-                            <select class="input-list" name="U[][impact]">
+                            <select class="input-list" name="U[0][impact]">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -266,13 +265,12 @@
                         </td>
                     </tr>
                     <tr>
-                    <tr>
                         <td rowspan="2" id="competences">Kompetencje (absolwent jest gotów do)/
                             Competences: (The graduate is ready to)</td>
                         <td>K1</td>
-                        <td><textarea name="K[][content]" class=""></textarea></td>
-                        <td class="right-columns"><input class="input-text" name="K[][relation]" type="text"></td>
-                        <td class="right-columns"><select class="input-list" name="K[][impact]">
+                        <td><textarea name="K[0][content]" class=""></textarea></td>
+                        <td class="right-columns"><input class="input-text" name="K[0][relation]" type="text"></td>
+                        <td class="right-columns"><select class="input-list" name="K[0][impact]">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -284,7 +282,6 @@
                             <button type="button" class="btn btn-danger float-end d-none" id="remove-k">Usuń wiersz</button>
                         </td>
                     </tr>
-                    <tr>
                     <tr>
                         <td colspan="2" class="left-column">Treści programowe zapewniające uzyskanie efektów uczenia się
                             /
@@ -327,7 +324,7 @@
                 <p class="text-below">*) 3 – zaawansowany i szczegółowy, 2 – znaczący, 1 – podstawowy/
                     3 – significant and detailed, 2 – considerable, 1 – basic,</p>
             </div>
-            <div id="pt4" class="table">
+            <div id="pt4" class="table-div">
                 <p>Wskaźniki ilościowe charakteryzujące moduł/przedmiot/
                     Quantitative summary of the course:</p>
                 <table>
@@ -337,20 +334,19 @@
                             pole ECTS /
                             Estimated number of work hours per student (contact and self-study) essential to achieve the
                             presumed learning outcomes - basis for the calculation of ECTS credits:</td>
-                        <td id="hours" class="right-columns"><input type="number"> h</td>
+                        <td id="hours"><input type="number" name="hours"> h</td>
                     </tr>
                     <tr>
                         <td>Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
                             udziału nauczycieli akademickich lub innych osób prowadzących zajęcia/
                             Total number of ECTS credits accumulated by the student during contact learning:</td>
-                        <td class=" right-columns"><input type="text"> ECTS</td>
+                        <td><input type="text" name="ects-val2"> ECTS</td>
                     </tr>
                 </table>
             </div>
-            <div id="submit"><input type="submit" class="btn btn-success" value="Zapisz dokument"><input class="btn btn-danger" type="reset"></div>
+            <div id="submit"><input type="submit" class="btn btn-success" value="Zatwierdź zmiany"><input class="btn btn-danger" type="reset"></div>
         </form>
     </main>
-    <script src="" async defer></script>
 </body>
 
 </html>
