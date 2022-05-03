@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -16,9 +15,8 @@
     <link rel="stylesheet" href="sylabus.css">
     <script src="..\composer_vendor\tinymce\tinymce\tinymce.min.js" referrerpolicy="origin"></script>
     <script type="text/javascript" src="..\composer_vendor\tinymce\tinymce\jquery.tinymce.min.js"></script>
-    <script src="..\composer_vendor\components\jquery\jquery.min.js" type="text/javascript"></script>   
+    <script src="..\composer_vendor\components\jquery\jquery.min.js" type="text/javascript"></script>
     <script>
-
         //Inicjalizacja TinyMCE
         tinymce.init({
             selector: 'textarea',
@@ -123,6 +121,58 @@
             });
         });
     </script>
+    <?php
+    if (isset($_POST)) {
+        require 'class\spreadsheet_line.php';
+        $data = unserialize($_POST['serialized_data']);
+        var_dump($data);
+        $semester = '';
+        switch ($data->semester) {
+            case 1:
+                $semester = 'I';
+                break;
+            case 2:
+                $semester = 'II';
+                break;
+            case 3:
+                $semester = 'III';
+                break;
+            case 4:
+                $semester = 'IV';
+                break;
+            case 5:
+                $semester = 'V';
+                break;
+            case 6:
+                $semester = 'VI';
+                break;
+            case 7:
+                $semester = 'VII';
+                break;
+            case 8:
+                $semester = 'VIII';
+                break;
+            case 9:
+                $semester = 'IX';
+                break;
+            case 10:
+                $semester = 'X';
+                break;
+            case 11:
+                $semester = 'XI';
+                break;
+            case 12:
+                $semester = 'XII';
+                break;
+        }
+        $kod = ($data->kod == 'Brak kodu') ? '' : $data->kod;
+        $nazwa = $data->nazwa;
+        $status_zajec1 = $data->status_zajec1;
+        $status_zajec2 = $data->status_zajec2;
+        $liczba_godzin = $data->liczba_godzin;
+        $ects = $data->ects;
+    }
+    ?>
 </head>
 
 <body>
@@ -136,9 +186,9 @@
                     <tr>
                         <td class="left-column">Nazwa zajęć/
                             Course title: </td>
-                        <td><input class="input-text" type="text" name="course-title"></td>
+                        <td><input class="input-text" type="text" name="course-title" <?php echo "value=\"$nazwa\""; ?>></td>
                         <td class="ects">ECTS</td>
-                        <td id="ects-value" class="ects"><input class="input-text" type="text" name="ects-val"></td>
+                        <td id="ects-value" class="ects"><input class="input-text" type="text" name="ects-val" <?php echo isset($ects) ? "value=\"$ects\" readonly" :''; ?> ></td>
                     </tr>
                     <tr>
                         <td class="left-column">Nazwa zajęć w j. angielskim/
@@ -169,21 +219,21 @@
                             intramural</td>
                         <td rowspan="2">Status zajęć/
                             Course status</td>
-                        <td><input type="radio" name="course-status1" id="basic" value="basic">podstawowe/
+                        <td><input type="radio" name="course-status1" id="basic" value="basic" <?php echo isset($status_zajec1) && $status_zajec1 == "P" ? 'checked' :''; ?>>podstawowe/
                             basic</td>
-                        <td><input type="radio" name="course-status2" id="mandatory" value="mandatory">obowiązkowe/
+                        <td><input type="radio" name="course-status2" id="mandatory" value="mandatory" <?php echo isset($status_zajec2) && $status_zajec2 == "O" ? 'checked' :''; ?>>obowiązkowe/
                             mandatory</td>
                         <td colspan="2" rowspan="2">Semestr/
-                            Semester: <input type="text" name="semester-value" style="width:auto"></td>
+                            Semester: <input type="text" name="semester-value" style="width:auto" <?php echo "value=\"$semester\" readonly"; ?>></td>
                         <td><input type="radio" name="semester" id="winter" value="winter">semestr zimowy/
                             winter semester</td>
                     </tr>
                     <tr>
                         <td><input type="radio" name="studies-form" id="niestacjonarne" value="niestacjonarne">niestacjonarne/
                             extramural</td>
-                        <td><input type="radio" name="course-status1" id="major" value="major">kierunkowe/
+                        <td><input type="radio" name="course-status1" id="major" value="major" <?php echo isset($status_zajec1) && $status_zajec1 == "K" ? 'checked' :''; ?>>kierunkowe/
                             major</td>
-                        <td><input type="radio" name="course-status2" id="elective" value="elective">do wyboru/
+                        <td><input type="radio" name="course-status2" id="elective" value="elective" <?php echo isset($status_zajec2) && $status_zajec2 == "F" ? 'checked' :''; ?>>do wyboru/
                             elective</td>
                         <td><input type="radio" name="semester" id="summer" value="summer">semestr letni/
                             summer semester</td>
@@ -194,7 +244,7 @@
                         <td id="year"><input class="input-text" type="text" name="a-year"></td>
                         <td class="align-right">Numer katalogowy/
                             Catalogue number:</td>
-                        <td><input class="input-text" type="text" name="catalogue-num"></td>
+                        <td><input class="input-text" type="text" name="catalogue-num" <?php echo "value=\"$kod\" readonly"; ?>></td>
                     </tr>
                 </table>
             </div>
@@ -348,13 +398,13 @@
                             pole ECTS /
                             Estimated number of work hours per student (contact and self-study) essential to achieve the
                             presumed learning outcomes - basis for the calculation of ECTS credits:</td>
-                        <td id="hours"><input type="number" name="hours"> h</td>
+                        <td id="hours"><input type="number" name="hours" <?php echo isset($liczba_godzin) ? "value=\"$liczba_godzin\" readonly" :''; ?>> h</td>
                     </tr>
                     <tr>
                         <td>Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
                             udziału nauczycieli akademickich lub innych osób prowadzących zajęcia/
                             Total number of ECTS credits accumulated by the student during contact learning:</td>
-                        <td><input type="text" name="ects-val2"> ECTS</td>
+                        <td><input type="text" name="ects-val2" <?php echo isset($ects) ? "value=\"$ects\" readonly" :''; ?>> ECTS</td>
                     </tr>
                 </table>
             </div>
