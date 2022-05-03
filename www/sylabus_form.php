@@ -123,9 +123,8 @@
     </script>
     <?php
     if (isset($_POST)) {
-        require 'class\spreadsheet_line.php';
+        require '.\class\spreadsheet_line.php';
         $data = unserialize($_POST['serialized_data']);
-        var_dump($data);
         $semester = '';
         switch ($data->semester) {
             case 1:
@@ -171,6 +170,15 @@
         $status_zajec2 = $data->status_zajec2;
         $liczba_godzin = $data->liczba_godzin;
         $ects = $data->ects;
+    }
+    else{
+        $kod;
+        $nazwa;
+        $semester = '';
+        $status_zajec1;
+        $status_zajec2;
+        $liczba_godzin;
+        $ects;
     }
     ?>
 </head>
@@ -224,7 +232,7 @@
                         <td><input type="radio" name="course-status2" id="mandatory" value="mandatory" <?php echo isset($status_zajec2) && $status_zajec2 == "O" ? 'checked' :''; ?>>obowiązkowe/
                             mandatory</td>
                         <td colspan="2" rowspan="2">Semestr/
-                            Semester: <input type="text" name="semester-value" style="width:auto" <?php echo "value=\"$semester\" readonly"; ?>></td>
+                            Semester: <input type="text" name="semester-value" style="width:auto" <?php echo $semester != '' ? "value=\"$semester\"  readonly" :''; ?>></td>
                         <td><input type="radio" name="semester" id="winter" value="winter">semestr zimowy/
                             winter semester</td>
                     </tr>

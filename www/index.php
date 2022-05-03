@@ -27,8 +27,8 @@
         </div>
     </main>
     <?php
-    require '..\composer_vendor\autoload.php';
-    require 'class\spreadsheet_line.php';
+    require '.\..\composer_vendor\autoload.php';
+    require '.\class\spreadsheet_line.php';
 
     use PhpOffice\PhpSpreadsheet\IOFactory;
     use PhpOffice\PhpSpreadsheet\Spreadsheet;
