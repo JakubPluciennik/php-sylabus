@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<html lang="pl">
 
 <head>
     <meta charset="utf-8">
@@ -11,7 +12,7 @@
     <title>Sylabus</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="..\composer_vendor\twbs\bootstrap\dist\css\bootstrap.cosmo.min.css" rel="stylesheet">
     <link rel="stylesheet" href="sylabus.css">
     <script src="..\composer_vendor\tinymce\tinymce\tinymce.min.js" referrerpolicy="origin"></script>
     <script type="text/javascript" src="..\composer_vendor\tinymce\tinymce\jquery.tinymce.min.js"></script>
@@ -86,6 +87,7 @@
         let uValue = 1;
         let kValue = 1;
 
+        //wywołania funkcji
         $(document).ready(function() {
             $("#add-w").click(function() {
                 addRow(this, "W", wValue, "knowledge");
@@ -356,7 +358,7 @@
                     </tr>
                 </table>
             </div>
-            <div id="submit"><input type="submit" class="btn btn-success" value="Zatwierdź zmiany"><input class="btn btn-danger" type="reset"></div>
+            <div id="submit"><input type="submit" name="submit" class="btn btn-success" value="Zatwierdź zmiany"><input class="btn btn-danger" type="reset"></div>
         </form>
     </main>
 </body>

@@ -10,7 +10,8 @@
     "require": {
         "phpoffice/phpspreadsheet": "^1.23",
         "tinymce/tinymce": "^6.0",
-        "components/jquery": "^3.6"
+        "components/jquery": "^3.6",
+        "twbs/bootstrap": "^5.1"
     },
     "config": {
         "vendor-dir": "composer_vendor"

@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '67e11f7dc25404e726ae29988a7f00e69d8da6a3',
+        'reference' => '2072dffa1ba36bc5115ef82d4d147af2dfd50194',
         'name' => 'pluci/php-sylabus',
         'dev' => true,
     ),
@@ -79,7 +79,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '67e11f7dc25404e726ae29988a7f00e69d8da6a3',
+            'reference' => '2072dffa1ba36bc5115ef82d4d147af2dfd50194',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
@@ -135,6 +135,21 @@
             'aliases' => array(),
             'reference' => '6eb0c53e09bd552740dee0ede369f6b97d6983d5',
             'dev_requirement' => false,
+        ),
+        'twbs/bootstrap' => array(
+            'pretty_version' => 'v5.1.3',
+            'version' => '5.1.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twbs/bootstrap',
+            'aliases' => array(),
+            'reference' => '1a6fdfae6be09b09eaced8f0e442ca6f7680a61e',
+            'dev_requirement' => false,
+        ),
+        'twitter/bootstrap' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => 'v5.1.3',
+            ),
         ),
     ),
 );
