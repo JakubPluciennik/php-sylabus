@@ -19,3 +19,4 @@ class Spreadsheet_line{
         $this->ects = $ects;
     }
 }
+?>

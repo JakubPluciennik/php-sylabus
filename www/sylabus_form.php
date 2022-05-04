@@ -11,11 +11,11 @@
     <title>Sylabus</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="..\composer_vendor\twbs\bootstrap\dist\css\bootstrap.cosmo.min.css" rel="stylesheet">
+    <link href="../composer_vendor/twbs/bootstrap/dist/css/bootstrap.cosmo.min.css" rel="stylesheet">
     <link rel="stylesheet" href="sylabus.css">
-    <script src="..\composer_vendor\tinymce\tinymce\tinymce.min.js" referrerpolicy="origin"></script>
-    <script type="text/javascript" src="..\composer_vendor\tinymce\tinymce\jquery.tinymce.min.js"></script>
-    <script src="..\composer_vendor\components\jquery\jquery.min.js" type="text/javascript"></script>
+    <script src="../composer_vendor/tinymce/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script type="text/javascript" src="../composer_vendor/tinymce/tinymce/jquery.tinymce.min.js"></script>
+    <script src="../composer_vendor/components/jquery/jquery.min.js" type="text/javascript"></script>
     <script>
         //Inicjalizacja TinyMCE
         tinymce.init({
@@ -123,7 +123,7 @@
     </script>
     <?php
     if (isset($_POST)) {
-        require '.\class\spreadsheet_line.php';
+        require 'class/spreadsheet_line.php';
         $data = unserialize($_POST['serialized_data']);
         $semester = '';
         switch ($data->semester) {

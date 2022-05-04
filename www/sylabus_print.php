@@ -36,12 +36,12 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td class="left-column">Nazwa zajęć w j. angielskim/
                         Course title in English: </td>
-                    <td colspan="3"><?php echo isset($_POST["course-title-eng"]) ? $_POST["course-title-eng"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["course-title-eng"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td class="left-column">Zajęcia dla kierunku studiów/
                         Degree program name: </td>
-                    <td colspan="3"><?php echo isset($_POST["degree"]) ? $_POST["degree"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["degree"] ?? ''; ?></td>
                 </tr>
             </table>
         </div>
@@ -50,10 +50,10 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td colspan="2">Język kursu/
                         Course language:</td>
-                    <td colspan="3"><?php echo isset($_POST["course-lang"]) ? $_POST["course-lang"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["course-lang"] ?? ''; ?></td>
                     <td colspan="2">Poziom studiów/
                         Study level:</td>
-                    <td><?php echo isset($_POST["study-lvl"]) ? $_POST["study-lvl"] : ''; ?></td>
+                    <td><?php echo $_POST["study-lvl"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td rowspan="2">Typ studiów/
@@ -82,10 +82,10 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td colspan="5" class="align-right">Rok akademicki/
                         Academic year:</td>
-                    <td id="year"><?php echo isset($_POST["a-year"]) ? $_POST["a-year"] : ''; ?></td>
+                    <td id="year"><?php echo $_POST["a-year"] ?? ''; ?></td>
                     <td class="align-right">Numer katalogowy/
                         Catalogue number:</td>
-                    <td><?php echo isset($_POST["catalogue-num"]) ? $_POST["catalogue-num"] : ''; ?></td>
+                    <td><?php echo $_POST["catalogue-num"] ?? ''; ?></td>
                 </tr>
             </table>
         </div>
@@ -94,32 +94,32 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td colspan="2" class="left-column">Koordynator zajęć/
                         Course coordinator:</td>
-                    <td colspan="3"><?php echo isset($_POST["coordinator"]) ? $_POST["coordinator"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["coordinator"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Prowadzący zajęcia/
                         Teachers responsible for the course:</td>
-                    <td colspan="3"><?php echo isset($_POST["responsible-teachers"]) ? $_POST["responsible-teachers"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["responsible-teachers"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Założenia, cele i opis zajęć/
                         Aims, objectives and description of the course:</td>
-                    <td colspan="3"><?php echo isset($_POST["aims"]) ? $_POST["aims"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["aims"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Formy dydaktyczne, liczba godzin/
                         Teaching forms, number of hours:</td>
-                    <td colspan="3"><?php echo isset($_POST["teaching-forms"]) ? $_POST["teaching-forms"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["teaching-forms"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Metody dydaktyczne/
                         Teaching methods:</td>
-                    <td colspan="3"><?php echo isset($_POST["teaching-methods"]) ? $_POST["teaching-methods"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["teaching-methods"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Wymagania formalne i założenia wstępne/
                         Formal requirements and prerequisites</td>
-                    <td colspan="3"><?php echo isset($_POST["formal-requirements"]) ? $_POST["formal-requirements"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["formal-requirements"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Efekty uczenia się/
@@ -255,39 +255,39 @@ if (!isset($_POST['submit'])) {
                     <td colspan="2" class="left-column">Treści programowe zapewniające uzyskanie efektów uczenia się
                         /
                         Program content ensuring the achievement of learning outcomes</td>
-                    <td colspan="3"><?php echo isset($_POST["program-content"]) ? $_POST["program-content"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["program-content"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Sposób weryfikacji efektów uczenia się/
                         Methods of the verification of the learning outcomes:</td>
-                    <td colspan="3"><?php echo isset($_POST["methods-verification"]) ? $_POST["methods-verification"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["methods-verification"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Szczegóły dotyczące sposobów weryfikacji i form dokumentacji
                         osiąganych efektów uczenia się/
                         Details on the verification methods and of the ways of documenting the learning outcomes:
                     </td>
-                    <td colspan="3"><?php echo isset($_POST["details"]) ? $_POST["details"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["details"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Elementy i wagi mające wpływ na ocenę końcową/Elements and
                         weights influencing the final grade:</td>
-                    <td colspan="3"><?php echo isset($_POST["elements-weights"]) ? $_POST["elements-weights"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["elements-weights"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Miejsce realizacji zajęć/
                         Teaching place:</td>
-                    <td colspan="3"><?php echo isset($_POST["teaching-place"]) ? $_POST["teaching-place"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["teaching-place"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Literatura/
                         Literature:</td>
-                    <td colspan="3"><?php echo isset($_POST["literature"]) ? $_POST["literature"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["literature"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">UWAGI/
                         ANNOTATIONS </td>
-                    <td colspan="3"><?php echo isset($_POST["annotations"]) ? $_POST["annotations"] : ''; ?></td>
+                    <td colspan="3"><?php echo $_POST["annotations"] ?? ''; ?></td>
                 </tr>
             </table>
             <p class="text-below">*) 3 – zaawansowany i szczegółowy, 2 – znaczący, 1 – podstawowy/
@@ -303,13 +303,13 @@ if (!isset($_POST['submit'])) {
                         pole ECTS /
                         Estimated number of work hours per student (contact and self-study) essential to achieve the
                         presumed learning outcomes - basis for the calculation of ECTS credits:</td>
-                    <td id="hours"><?php echo isset($_POST["hours"]) ? $_POST["hours"] : ''; ?> h</td>
+                    <td id="hours"><?php echo $_POST["hours"] ?? ''; ?> h</td>
                 </tr>
                 <tr>
                     <td>Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
                         udziału nauczycieli akademickich lub innych osób prowadzących zajęcia/
                         Total number of ECTS credits accumulated by the student during contact learning:</td>
-                    <td><?php echo isset($_POST["ects-val2"]) ? $_POST["ects-val2"] : ''; ?> ECTS</td>
+                    <td><?php echo $_POST["ects-val2"] ?? ''; ?> ECTS</td>
                 </tr>
             </table>
         </div>
