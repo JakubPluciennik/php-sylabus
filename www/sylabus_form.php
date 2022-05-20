@@ -87,6 +87,10 @@
 
         //wywołania funkcji
         $(document).ready(function() {
+            $("#go-back").click(function() {
+                window.history.go(-1);
+            });
+
             $("#add-w").click(function() {
                 addRow(this, "W", wValue, "knowledge");
                 wValue++;
@@ -122,6 +126,12 @@
         });
     </script>
     <?php
+
+    $previous = "javascript:history.go(-1)";
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        $previous = $_SERVER['HTTP_REFERER'];
+    }
+
     if (isset($_POST)) {
         require 'class/spreadsheet_line.php';
         $data = unserialize($_POST['serialized_data']);
@@ -170,8 +180,7 @@
         $status_zajec2 = $data->status_zajec2;
         $liczba_godzin = $data->liczba_godzin;
         $ects = $data->ects;
-    }
-    else{
+    } else {
         $kod;
         $nazwa;
         $semester = '';
@@ -188,7 +197,7 @@
         <div class="title">Formularz sylabusu</div>
     </header>
     <main>
-        <form action="sylabus_print.php" method="post">
+        <form action="sylabus_print.php" method="post" target="_blank">
             <div id="pt1" class="table-div">
                 <table>
                     <tr>
@@ -196,7 +205,7 @@
                             Course title: </td>
                         <td><input class="input-text" type="text" name="course-title" <?php echo "value=\"$nazwa\""; ?>></td>
                         <td class="ects">ECTS</td>
-                        <td id="ects-value" class="ects"><input class="input-text" type="text" name="ects-val" <?php echo isset($ects) ? "value=\"$ects\" readonly" :''; ?> ></td>
+                        <td id="ects-value" class="ects"><input class="input-text" type="text" name="ects-val" <?php echo isset($ects) ? "value=\"$ects\" readonly" : ''; ?>></td>
                     </tr>
                     <tr>
                         <td class="left-column">Nazwa zajęć w j. angielskim/
@@ -227,21 +236,21 @@
                             intramural</td>
                         <td rowspan="2">Status zajęć/
                             Course status</td>
-                        <td><input type="radio" name="course-status1" id="basic" value="basic" <?php echo isset($status_zajec1) && $status_zajec1 == "P" ? 'checked' :''; ?>>podstawowe/
+                        <td><input type="radio" name="course-status1" id="basic" value="basic" <?php echo isset($status_zajec1) && $status_zajec1 == "P" ? 'checked' : ''; ?>>podstawowe/
                             basic</td>
-                        <td><input type="radio" name="course-status2" id="mandatory" value="mandatory" <?php echo isset($status_zajec2) && $status_zajec2 == "O" ? 'checked' :''; ?>>obowiązkowe/
+                        <td><input type="radio" name="course-status2" id="mandatory" value="mandatory" <?php echo isset($status_zajec2) && $status_zajec2 == "O" ? 'checked' : ''; ?>>obowiązkowe/
                             mandatory</td>
                         <td colspan="2" rowspan="2">Semestr/
-                            Semester: <input type="text" name="semester-value" style="width:auto" <?php echo $semester != '' ? "value=\"$semester\"  readonly" :''; ?>></td>
+                            Semester: <input type="text" name="semester-value" style="width:auto" <?php echo $semester != '' ? "value=\"$semester\"  readonly" : ''; ?>></td>
                         <td><input type="radio" name="semester" id="winter" value="winter">semestr zimowy/
                             winter semester</td>
                     </tr>
                     <tr>
                         <td><input type="radio" name="studies-form" id="niestacjonarne" value="niestacjonarne">niestacjonarne/
                             extramural</td>
-                        <td><input type="radio" name="course-status1" id="major" value="major" <?php echo isset($status_zajec1) && $status_zajec1 == "K" ? 'checked' :''; ?>>kierunkowe/
+                        <td><input type="radio" name="course-status1" id="major" value="major" <?php echo isset($status_zajec1) && $status_zajec1 == "K" ? 'checked' : ''; ?>>kierunkowe/
                             major</td>
-                        <td><input type="radio" name="course-status2" id="elective" value="elective" <?php echo isset($status_zajec2) && $status_zajec2 == "F" ? 'checked' :''; ?>>do wyboru/
+                        <td><input type="radio" name="course-status2" id="elective" value="elective" <?php echo isset($status_zajec2) && $status_zajec2 == "F" ? 'checked' : ''; ?>>do wyboru/
                             elective</td>
                         <td><input type="radio" name="semester" id="summer" value="summer">semestr letni/
                             summer semester</td>
@@ -301,7 +310,7 @@
                     <tr>
                         <td rowspan="2" id="knowledge">Wiedza (absolwent zna i rozumie)/
                             Knowledge: (the graduate knows and understands)</td>
-                        <td>W1</td>
+                        <td class="value-cell">W1</td>
                         <td><textarea name="W[0][content]" class=""></textarea></td>
                         <td class="right-columns"><input class="input-text" name="W[0][relation]" type="text"></td>
                         <td class="right-columns">
@@ -320,7 +329,7 @@
                     <tr>
                         <td rowspan="2" id="skills">Umiejętności (absolwent potrafi)/
                             Skills: (the graduate is able to)</td>
-                        <td>U1</td>
+                        <td class="value-cell">U1</td>
                         <td><textarea name="U[0][content]" class=""></textarea></td>
                         <td class="right-columns"><input class="input-text" name="U[0][relation]" type="text"></td>
                         <td class="right-columns">
@@ -339,7 +348,7 @@
                     <tr>
                         <td rowspan="2" id="competences">Kompetencje (absolwent jest gotów do)/
                             Competences: (The graduate is ready to)</td>
-                        <td>K1</td>
+                        <td class="value-cell">K1</td>
                         <td><textarea name="K[0][content]" class=""></textarea></td>
                         <td class="right-columns"><input class="input-text" name="K[0][relation]" type="text"></td>
                         <td class="right-columns"><select class="input-list" name="K[0][impact]">
@@ -406,17 +415,23 @@
                             pole ECTS /
                             Estimated number of work hours per student (contact and self-study) essential to achieve the
                             presumed learning outcomes - basis for the calculation of ECTS credits:</td>
-                        <td id="hours"><input type="number" name="hours" <?php echo isset($liczba_godzin) ? "value=\"$liczba_godzin\" readonly" :''; ?>> h</td>
+                        <td id="hours"><input type="number" name="hours" <?php echo isset($liczba_godzin) ? "value=\"$liczba_godzin\" readonly" : ''; ?>> h</td>
                     </tr>
                     <tr>
                         <td>Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
                             udziału nauczycieli akademickich lub innych osób prowadzących zajęcia/
                             Total number of ECTS credits accumulated by the student during contact learning:</td>
-                        <td><input type="text" name="ects-val2" <?php echo isset($ects) ? "value=\"$ects\" readonly" :''; ?>> ECTS</td>
+                        <td><input type="text" name="ects-val2" <?php echo isset($ects) ? "value=\"$ects\" readonly" : ''; ?>> ECTS</td>
                     </tr>
                 </table>
             </div>
-            <div id="submit"><input type="submit" name="submit" class="btn btn-success" value="Zatwierdź zmiany"><input class="btn btn-danger" type="reset"></div>
+            <div id="submit">
+                <input type="submit" name="submit" class="btn btn-success" value="Zatwierdź zmiany">
+                <input class="btn btn-danger" type="reset">
+            </div>
+            <div id="back">
+            <INPUT type="button" class="btn btn-primary"  value="Back" onClick="history.go(-1);">
+            </div>
         </form>
     </main>
 </body>

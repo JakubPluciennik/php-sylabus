@@ -88,8 +88,14 @@ table tr td {
 
 #submit {
     position: fixed;
-    top: 3px;
-    right: 3px;
+    top: 5px;
+    right: 5px;
+}
+
+#back {
+    position: fixed;
+    top: 5px;
+    left: 5px;
 }
 
 input[type=text] {
@@ -122,4 +128,12 @@ input[type='radio']:checked {
 
     width:50%;
     display: inline;
+}
+#pt4 .right{
+    min-width: 60px;
+    text-align: center;
+}
+
+.value-cell{
+    padding:10px;
 }

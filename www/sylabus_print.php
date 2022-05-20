@@ -141,7 +141,7 @@ if (!isset($_POST['submit'])) {
                     $row = <<<ROW1
                         <td rowspan="$w_count" id="knowledge">Wiedza (absolwent zna i rozumie)/
                         Knowledge: (the graduate knows and understands)</td>
-                    <td>W1</td>
+                    <td class="value-cell">W1</td>
                     <td>$w_content</td>
                     <td class="right-columns">$w_relation</td>
                     <td class="right-columns">
@@ -159,7 +159,7 @@ if (!isset($_POST['submit'])) {
                     $w_val = $i + 1;
                     $row = <<<ROW
                         <tr>
-                        <td>W$w_val</td>
+                        <td class="value-cell">W$w_val</td>
                         <td>$w_content</td>
                         <td class="right-columns">$w_relation</td>
                         <td class="right-columns">
@@ -181,7 +181,7 @@ if (!isset($_POST['submit'])) {
                     $row = <<<ROW1
                         <td rowspan="$u_count" id="skills">Umiejętności (absolwent potrafi)/
                         Skills: (the graduate is able to)</td>
-                    <td>U1</td>
+                    <td class="value-cell">U1</td>
                     <td>$u_content</td>
                     <td class="right-columns">$u_relation</td>
                     <td class="right-columns">
@@ -199,7 +199,7 @@ if (!isset($_POST['submit'])) {
                     $u_val = $i + 1;
                     $row = <<<ROW
                         <tr>
-                        <td>U$u_val</td>
+                        <td class="value-cell">U$u_val</td>
                         <td>$u_content</td>
                         <td class="right-columns">$u_relation</td>
                         <td class="right-columns">
@@ -221,7 +221,7 @@ if (!isset($_POST['submit'])) {
                     $row = <<<ROW1
                         <td rowspan="$k_count" id="competences">Kompetencje (absolwent jest gotów do)/
                         Competences: (The graduate is ready to)</td>
-                    <td>K1</td>
+                    <td class="value-cell">K1</td>
                     <td>$k_content</td>
                     <td class="right-columns">$k_relation</td>
                     <td class="right-columns">
@@ -239,7 +239,7 @@ if (!isset($_POST['submit'])) {
                     $k_val = $i + 1;
                     $row = <<<ROW
                         <tr>
-                        <td>K$k_val</td>
+                        <td class="value-cell">K$k_val</td>
                         <td>$k_content</td>
                         <td class="right-columns">$k_relation</td>
                         <td class="right-columns">
@@ -303,13 +303,13 @@ if (!isset($_POST['submit'])) {
                         pole ECTS /
                         Estimated number of work hours per student (contact and self-study) essential to achieve the
                         presumed learning outcomes - basis for the calculation of ECTS credits:</td>
-                    <td id="hours"><?php echo $_POST["hours"] ?? ''; ?> h</td>
+                    <td class="right" id="hours"><?php echo $_POST["hours"] ?? ''; ?> h</td>
                 </tr>
                 <tr>
                     <td>Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
                         udziału nauczycieli akademickich lub innych osób prowadzących zajęcia/
                         Total number of ECTS credits accumulated by the student during contact learning:</td>
-                    <td><?php echo $_POST["ects-val2"] ?? ''; ?> ECTS</td>
+                    <td class="right"><?php echo $_POST["ects-val2"] ?? ''; ?> ECTS</td>
                 </tr>
             </table>
         </div>
