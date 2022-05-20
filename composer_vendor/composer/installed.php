@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '2072dffa1ba36bc5115ef82d4d147af2dfd50194',
+        'reference' => '92c40235cf3f3ae18ad1e865be9d91c33374c740',
         'name' => 'pluci/php-sylabus',
         'dev' => true,
     ),
@@ -74,12 +74,12 @@
             'dev_requirement' => false,
         ),
         'pluci/php-sylabus' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '2072dffa1ba36bc5115ef82d4d147af2dfd50194',
+            'reference' => '92c40235cf3f3ae18ad1e865be9d91c33374c740',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
@@ -110,12 +110,12 @@
             'dev_requirement' => false,
         ),
         'psr/simple-cache' => array(
-            'pretty_version' => '2.0.0',
-            'version' => '2.0.0.0',
+            'pretty_version' => '1.0.1',
+            'version' => '1.0.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/simple-cache',
             'aliases' => array(),
-            'reference' => '8707bf3cea6f710bf6ef05491234e3ab06f6432a',
+            'reference' => '408d5eafb83c57f6365a3ca330ff23aa4a5fa39b',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(
