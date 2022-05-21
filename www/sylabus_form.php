@@ -411,13 +411,13 @@
                             pole ECTS /
                             Estimated number of work hours per student (contact and self-study) essential to achieve the
                             presumed learning outcomes - basis for the calculation of ECTS credits:</td>
-                        <td id="hours"><input type="number" name="hours" <?php echo isset($liczba_godzin) ? "value=\"$liczba_godzin\" readonly" : ''; ?>> h</td>
+                        <td id="hours"><input type="number" name="hours" <?php echo isset($liczba_godzin) ? "value=\"$liczba_godzin\"" : ''; ?>> h</td>
                     </tr>
                     <tr>
                         <td>Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
                             udziału nauczycieli akademickich lub innych osób prowadzących zajęcia/
                             Total number of ECTS credits accumulated by the student during contact learning:</td>
-                        <td><input type="text" name="ects-val2" <?php echo isset($ects) ? "value=\"$ects\" readonly" : ''; ?>> ECTS</td>
+                        <td><input type="text" name="ects-val2" <?php echo isset($ects) ? "value=\"$ects\"" : ''; ?>> ECTS</td>
                     </tr>
                 </table>
             </div>
