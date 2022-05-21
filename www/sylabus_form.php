@@ -87,10 +87,6 @@
 
         //wywołania funkcji
         $(document).ready(function() {
-            $("#go-back").click(function() {
-                window.history.go(-1);
-            });
-
             $("#add-w").click(function() {
                 addRow(this, "W", wValue, "knowledge");
                 wValue++;
@@ -430,7 +426,7 @@
                 <input class="btn btn-danger" type="reset">
             </div>
             <div id="back">
-            <INPUT type="button" class="btn btn-primary"  value="Back" onClick="history.go(-1);">
+            <INPUT type="button" class="btn btn-primary"  value="Powrót" onClick="history.go(-1);">
             </div>
         </form>
     </main>

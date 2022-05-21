@@ -14,7 +14,6 @@
     <main class="d-flex align-items-center justify-content-center">
         <form id="form" action="" method="POST" enctype="multipart/form-data" class="row row-cols-lg-auto g-3 align-items-center">
             <div class="form-group m-3">
-                <label for="file">Wybierz plik:</label>
                 <input type="file" class="form-control" name="file" id="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .xml">
             </div>
             <div class="form-group m-3">

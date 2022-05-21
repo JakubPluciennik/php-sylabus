@@ -19,17 +19,8 @@ body {
         height: 40px;
     }
 }
-
-@media only print {
-    body {
-        font-size: 0.7em;
-        padding-left: 40px;
-        padding-right: 20px;
-    }
-
-    #submit {
-        display: none;
-    }
+#year{
+    min-width:70px;
 }
 
 header {
@@ -69,6 +60,30 @@ table tr td {
 #pt2 {
     background-color: #f2f2f2;
 }
+
+#pt2 table tr td {
+    border:none;
+}
+#pt2 table tr .border-a{
+    border: 1px solid black;
+    text-align: right;
+}
+#pt2 table tr .border-ac{
+    border: 1px solid black;
+    text-align: center;
+}
+#pt2 table tr .border-nr{
+    border:1px solid black;
+    border-right:none;
+}
+
+#pt2 table tr .border-nl{
+    border:1px solid black;
+    border-left: none;
+}
+#pt2 table tr .st-form{
+    min-width: 150px;
+}
 #pt3 select{
     width: 80%;
     text-align: center;
@@ -96,6 +111,11 @@ table tr td {
     position: fixed;
     top: 5px;
     left: 5px;
+}
+#print {
+    position: fixed;
+    top: 5px;
+    right: 5px;
 }
 
 input[type=text] {
@@ -136,4 +156,46 @@ input[type='radio']:checked {
 
 .value-cell{
     padding:10px;
+}
+
+.button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #373a3c;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: 0;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+.button:hover {
+    color: #373a3c
+}
+
+.button-check:focus+.button,
+.button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(39, 128, 227, .25)
+}
+
+.button-primary {
+    color: #fff;
+    background-color: #2780e3;
+    border-color: #2780e3
+}
+
+.button-primary:hover {
+    color: #fff;
+    background-color: #216dc1;
+    border-color: #1f66b6
 }
