@@ -322,7 +322,7 @@ if (!isset($_POST['submit'])) {
     </div>
     <form id="print_form" action="class/download.php" method="post" target="_blank">
         <input type="hidden" name="html" id="html" value="">
-        <input type="submit" id="print" class="button button-primary" name="submit" value="Zapisz Dokument">
+        <input type="submit" id="print" class="button button-primary" name="submit" value="Pobierz Dokument">
     </form>
 </body>
 
