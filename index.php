@@ -24,7 +24,7 @@
             </div>
         </form>
     </main>
-    <div class="d-flex align-items-center justify-content-center m-2"><a class="btn btn-warning w-25" href="www/sylabus_clean.php">Czysty plik</a></div>
+    <div class="d-flex align-items-center justify-content-center " ><a class="btn btn-warning w-75 mb-2" style="min-width:100px; max-width:640px;" href="www/sylabus_clean.php">Czysty plik</a></div>
     <?php
     require 'composer_vendor/autoload.php';
     require 'www/class/spreadsheet_line.php';
