@@ -23,8 +23,8 @@
                 <button type="submit" form="form" class="btn btn-secondary" name="submit" value="local">Próbny plik lokalny</button>
             </div>
         </form>
-        </div>
     </main>
+    <div class="d-flex align-items-center justify-content-center m-2"><a class="btn btn-warning w-25" href="www/sylabus_clean.php">Czysty plik</a></div>
     <?php
     require 'composer_vendor/autoload.php';
     require 'www/class/spreadsheet_line.php';
@@ -63,7 +63,7 @@
                 if ($fileError === 0) {
                     if ($fileSize < 1000000) {
                         $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-                        $fileDestination = $dir .'/'. $fileNameNew;
+                        $fileDestination = $dir . '/' . $fileNameNew;
                         if (move_uploaded_file($fileTmpName, $fileDestination)) {
                             echo '<div class="alert alert-success">Plik został wysłany</div>';
                             $filedir = $fileDestination;
@@ -84,7 +84,7 @@
         }
     } else if ($type == 'local') {
         echo '<div class="alert alert-success">Wybrano plik lokalny</div>';
-        $filedir = $dir .'/'. 'Informatyka-plan-studiow-2019_20-1.xlsx';
+        $filedir = $dir . '/' . 'Informatyka-plan-studiow-2019_20-1.xlsx';
     }
     if ($filedir != '') {
         if (file_exists($filedir)) {

@@ -85,7 +85,7 @@ table tr td {
     text-align: center;
 }
 #pt4 .right{
-    min-width: 20mm !important;
+    width:20mm;
     text-align: center;
 }
 
