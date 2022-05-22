@@ -12,7 +12,5 @@ if (isset($_POST["submit"])) {
     $mpdf->shrink_tables_to_fit = 1;
     $mpdf->WriteHTML($page_css, 1, true, false);
     $mpdf->WriteHTML($main, 2, false, true);
-    // var_dump($main);
-    // var_dump($style);
     $mpdf->Output('sylabus.pdf', 'D');
 }
