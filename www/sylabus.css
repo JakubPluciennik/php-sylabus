@@ -10,13 +10,107 @@ body {
     width: 150px;
     height: 50px;
 }
+#submit {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+}
+
+#back {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
 @media only screen and (orientation:portrait) {
-    body {
-        width: 100%;
+    body{
+        width:100%;
+        font-size: 0.8em;
+    }
+    #year{
+        width:90px;
+    }
+    #catalogue-num{
+        width:130px;
+    }
+    #submit{
+        background-color: white;
+        top:0;
+        right:0;
+        z-index: 1;
+    }
+    #back {
+        background-color: white;
+        top: 0;
+        left: 0;
+        padding: 5px;
     }
     #submit input {
         width: 150px;
         height: 40px;
+        display:inline;
+        margin:5px;
+    }
+}
+#year{
+    width:100px;
+}
+#catalogue-num{
+    width:160px;
+}
+@media (max-width:1800px) and (orientation:landscape) {
+    body{
+        font-size:0.8rem;
+    }
+    #year{
+        width:90px;
+    }
+    #catalogue-num{
+        width:130px;
+    }
+
+}
+@media (max-width:1500px) and (orientation:landscape) {
+    body{
+        font-size: 0.7em;
+    }
+    #year{
+        width:80px;
+    }
+    #catalogue-num{
+        width:115px;
+    }
+}
+
+@media (max-width:1100px) and (orientation:landscape) {
+    body{
+        width:100%;
+        padding:5px;
+        font-size: 0.8em;
+    }
+    #year{
+        width:90px;
+    }
+    #catalogue-num{
+        width:130px;
+    }
+    #submit{
+        background-color: white;
+        top:0;
+        right:0;
+        z-index: 1;
+    }
+    #back {
+        background-color: white;
+        top: 0;
+        left: 0;
+        padding: 5px;
+    }
+    #submit input {
+        width: 150px;
+        height: 40px;
+        display:inline;
+        margin:5px;
     }
 }
 @media print{
@@ -55,9 +149,7 @@ body {
         display: none !important;
     }
 }
-#year{
-    min-width:70px;
-}
+
 
 header {
     font-size: 2em;
@@ -138,17 +230,7 @@ table tr td {
     text-align: center;
 }
 
-#submit {
-    position: fixed;
-    top: 5px;
-    right: 5px;
-}
 
-#back {
-    position: fixed;
-    top: 5px;
-    left: 5px;
-}
 #print {
     position: fixed;
     top: 5px;

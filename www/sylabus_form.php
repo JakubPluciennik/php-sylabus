@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html lang="pl">
 
 <head>
@@ -257,7 +253,7 @@
                         <td id="year" class="border-ac"><input class="input-text" type="text" name="a-year"></td>
                         <td class="align-right border-a">Numer katalogowy/
                             Catalogue number:</td>
-                        <td class="border-ac"><input class="input-text" type="text" name="catalogue-num" <?php echo "value=\"$kod\" readonly"; ?>></td>
+                        <td class="border-ac" id="catalogue-num" ><input class="input-text" type="text" name="catalogue-num" <?php echo "value=\"$kod\" readonly"; ?>></td>
                     </tr>
                 </table>
             </div>
