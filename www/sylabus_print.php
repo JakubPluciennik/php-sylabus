@@ -21,13 +21,17 @@ if (!isset($_POST['submit'])) {
     <script src="../composer_vendor/components/jquery/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $("#print").click(function() {
-                window.print();
+            $("#print_form").submit(function() {
+                var main = $("#printable").html();
+                // add value from main to hidden input
+                $("#html").val(main);
+                // submit form
             });
         });
     </script>
 </head>
 <body>
+    <div id="printable">
     <main>
         <div id="pt1" class="table-div">
             <table>
@@ -136,7 +140,6 @@ if (!isset($_POST['submit'])) {
                     <td class="right-columns">Siła dla ef. kier*/
                         Impact on the course outcomes*</td>
                 </tr>
-                <div class="avoid-break">
                     <tr>
                         <?php
                         $w_row = $_POST["W"];
@@ -145,7 +148,7 @@ if (!isset($_POST['submit'])) {
                         $w_relation = $w_row[0]['relation'] ?: '';
                         $w_impact = ($w_row[0]['content'] != '' || $w_row[0]['relation'] != '') ? $w_row[0]['impact'] : '';
                         $row = <<<ROW1
-                        <td rowspan="$w_count" id="knowledge" class="left-column-outcomes">Wiedza (absolwent zna i rozumie)/
+                        <td class="border-nb" id="knowledge" class="left-column-outcomes">Wiedza (absolwent zna i rozumie)/
                         Knowledge: (the graduate knows and understands)</td>
                     <td class="value-cell">W1</td>
                     <td>$w_content</td>
@@ -165,6 +168,7 @@ if (!isset($_POST['submit'])) {
                         $w_val = $i + 1;
                         $row = <<<ROW
                             <tr>
+                            <td class="no-border"></td>
                             <td class="value-cell">W$w_val</td>
                             <td>$w_content</td>
                             <td class="right-columns">$w_relation</td>
@@ -176,8 +180,6 @@ if (!isset($_POST['submit'])) {
                         echo $row;
                     }
                     ?>
-                </div>
-                <div class="avoid-break">
                     <tr>
                         <?php
                         $u_row = $_POST["U"];
@@ -186,7 +188,7 @@ if (!isset($_POST['submit'])) {
                         $u_relation = $u_row[0]['relation'] ?: '';
                         $u_impact = ($u_row[0]['content'] != '' || $u_row[0]['relation'] != '') ? $u_row[0]['impact'] : '';
                         $row = <<<ROW1
-                        <td rowspan="$u_count" id="skills"  class="left-column-outcomes">Umiejętności (absolwent potrafi)/
+                        <td class="border-nb"  id="skills"  class="left-column-outcomes">Umiejętności (absolwent potrafi)/
                         Skills: (the graduate is able to)</td>
                     <td class="value-cell">U1</td>
                     <td>$u_content</td>
@@ -206,6 +208,7 @@ if (!isset($_POST['submit'])) {
                         $u_val = $i + 1;
                         $row = <<<ROW
                         <tr>
+                        <td class="no-border"></td>
                         <td class="value-cell">U$u_val</td>
                         <td>$u_content</td>
                         <td class="right-columns">$u_relation</td>
@@ -217,8 +220,6 @@ if (!isset($_POST['submit'])) {
                         echo $row;
                     }
                     ?>
-                </div>
-                <div class="avoid-break">
                     <tr>
                         <?php
                         $k_row = $_POST["K"];
@@ -227,7 +228,7 @@ if (!isset($_POST['submit'])) {
                         $k_relation = $k_row[0]['relation'] ?: '';
                         $k_impact = ($k_row[0]['content'] != '' || $k_row[0]['relation'] != '') ? $k_row[0]['impact'] : '';
                         $row = <<<ROW1
-                            <td rowspan="$k_count" id="competences"  class="left-column-outcomes">Kompetencje (absolwent jest gotów do)/
+                            <td class="border-nb"  id="competences"  class="left-column-outcomes">Kompetencje (absolwent jest gotów do)/
                             Competences: (The graduate is ready to)</td>
                             <td class="value-cell">K1</td>
                             <td>$k_content</td>
@@ -247,6 +248,7 @@ if (!isset($_POST['submit'])) {
                         $k_val = $i + 1;
                         $row = <<<ROW
                             <tr>
+                            <td class="no-border"></td>
                             <td class="value-cell">K$k_val</td>
                             <td>$k_content</td>
                             <td class="right-columns">$k_relation</td>
@@ -258,7 +260,6 @@ if (!isset($_POST['submit'])) {
                         echo $row;
                     }
                     ?>
-                </div>
                 <tr>
                     <td colspan="2" class="left-column">Treści programowe zapewniające uzyskanie efektów uczenia się
                         /
@@ -322,7 +323,11 @@ if (!isset($_POST['submit'])) {
             </table>
         </div>
     </main>
-    <button id="print" class="hide button button-primary">Zapisz Dokument</button>
+    </div>
+    <form id="print_form" action="class/download.php" method="post" target="_blank">
+        <input type="hidden" name="html" id="html" value="">
+        <input type="submit" id="print" class="button button-primary" name="submit" value="Zapisz Dokument">
+    </form>
 </body>
 
 </html>
