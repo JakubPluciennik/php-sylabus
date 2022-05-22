@@ -153,26 +153,26 @@
             <div id="pt2" class="table-div">
                 <table>
                     <tr>
-                        <td colspan="2">Język kursu/
+                        <td colspan="2" class="border-nr">Język kursu/
                             Course language:</td>
-                        <td colspan="3"><input class="input-text" type="text" name="course-lang"></td>
-                        <td colspan="2">Poziom studiów/
+                        <td colspan="3" class="border-nl"><input class="input-text" type="text" name="course-lang"></td>
+                        <td colspan="2" class="border-nr">Poziom studiów/
                             Study level:</td>
-                        <td><input class="input-text" type="text" name="study-lvl"></td>
+                        <td  class="border-nl"><input class="input-text" type="text" name="study-lvl"></td>
                     </tr>
                     <tr>
-                        <td rowspan="2">Typ studiów/
+                        <td rowspan="2" >Typ studiów/
                             Form of studies: </td>
                         <td><input type="radio" name="studies-form" id="stacjonarne" value="stacjonarne" checked> stacjonarne/
                             intramural</td>
-                        <td rowspan="2">Status zajęć/
+                        <td rowspan="2" class="border-nr">Status zajęć/
                             Course status</td>
-                        <td><input type="radio" name="course-status1" id="basic" value="basic" checked >podstawowe/
+                        <td><input type="radio" name="course-status1" id="basic" value="basic" checked>podstawowe/
                             basic</td>
                         <td><input type="radio" name="course-status2" id="mandatory" value="mandatory" checked>obowiązkowe/
                             mandatory</td>
-                        <td colspan="2" rowspan="2">Semestr/
-                            Semester: <input type="text" name="semester-value" style="width:auto" ></td>
+                        <td colspan="2" rowspan="2" class="border-nr">Semestr/
+                            Semester: <input type="text" name="semester-value" style="width:auto" checked></td>
                         <td><input type="radio" name="semester" id="winter" value="winter">semestr zimowy/
                             winter semester</td>
                     </tr>
@@ -181,18 +181,18 @@
                             extramural</td>
                         <td><input type="radio" name="course-status1" id="major" value="major" >kierunkowe/
                             major</td>
-                        <td><input type="radio" name="course-status2" id="elective" value="elective" >do wyboru/
+                        <td><input type="radio" name="course-status2" id="elective" value="elective">do wyboru/
                             elective</td>
                         <td><input type="radio" name="semester" id="summer" value="summer">semestr letni/
                             summer semester</td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="align-right">Rok akademicki/
+                        <td colspan="5" class="align-right border-a">Rok akademicki/
                             Academic year:</td>
-                        <td id="year"><input class="input-text" type="text" name="a-year"></td>
-                        <td class="align-right">Numer katalogowy/
+                        <td id="year" class="border-ac"><input class="input-text" type="text" name="a-year"></td>
+                        <td class="align-right border-a">Numer katalogowy/
                             Catalogue number:</td>
-                        <td><input class="input-text" type="text" name="catalogue-num" ></td>
+                        <td class="border-ac"><input class="input-text" type="text" name="catalogue-num" ></td>
                     </tr>
                 </table>
             </div>

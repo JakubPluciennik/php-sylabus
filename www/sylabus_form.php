@@ -218,25 +218,25 @@
             <div id="pt2" class="table-div">
                 <table>
                     <tr>
-                        <td colspan="2">Język kursu/
+                        <td colspan="2" class="border-nr">Język kursu/
                             Course language:</td>
-                        <td colspan="3"><input class="input-text" type="text" name="course-lang"></td>
-                        <td colspan="2">Poziom studiów/
+                        <td colspan="3" class="border-nl"><input class="input-text" type="text" name="course-lang"></td>
+                        <td colspan="2" class="border-nr">Poziom studiów/
                             Study level:</td>
-                        <td><input class="input-text" type="text" name="study-lvl"></td>
+                        <td  class="border-nl"><input class="input-text" type="text" name="study-lvl"></td>
                     </tr>
                     <tr>
-                        <td rowspan="2">Typ studiów/
+                        <td rowspan="2" >Typ studiów/
                             Form of studies: </td>
                         <td><input type="radio" name="studies-form" id="stacjonarne" value="stacjonarne"> stacjonarne/
                             intramural</td>
-                        <td rowspan="2">Status zajęć/
+                        <td rowspan="2" class="border-nr">Status zajęć/
                             Course status</td>
                         <td><input type="radio" name="course-status1" id="basic" value="basic" <?php echo isset($status_zajec1) && $status_zajec1 == "P" ? 'checked' : ''; ?>>podstawowe/
                             basic</td>
                         <td><input type="radio" name="course-status2" id="mandatory" value="mandatory" <?php echo isset($status_zajec2) && $status_zajec2 == "O" ? 'checked' : ''; ?>>obowiązkowe/
                             mandatory</td>
-                        <td colspan="2" rowspan="2">Semestr/
+                        <td colspan="2" rowspan="2" class="border-nr">Semestr/
                             Semester: <input type="text" name="semester-value" style="width:auto" <?php echo $semester != '' ? "value=\"$semester\"  readonly" : ''; ?>></td>
                         <td><input type="radio" name="semester" id="winter" value="winter">semestr zimowy/
                             winter semester</td>
@@ -252,12 +252,12 @@
                             summer semester</td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="align-right">Rok akademicki/
+                        <td colspan="5" class="align-right border-a">Rok akademicki/
                             Academic year:</td>
-                        <td id="year"><input class="input-text" type="text" name="a-year"></td>
-                        <td class="align-right">Numer katalogowy/
+                        <td id="year" class="border-ac"><input class="input-text" type="text" name="a-year"></td>
+                        <td class="align-right border-a">Numer katalogowy/
                             Catalogue number:</td>
-                        <td><input class="input-text" type="text" name="catalogue-num" <?php echo "value=\"$kod\" readonly"; ?>></td>
+                        <td class="border-ac"><input class="input-text" type="text" name="catalogue-num" <?php echo "value=\"$kod\" readonly"; ?>></td>
                     </tr>
                 </table>
             </div>
