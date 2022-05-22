@@ -1,0 +1,110 @@
+@page{
+    size: 210mm 297mm;
+    margin: 6mm;
+}
+body {
+    font-family: DejaVu Sans, sans-serif;
+    font-size: 8pt;
+}
+#year{
+    width:20mm;
+}
+.bold {
+    font-weight: bold;
+}
+.hide {
+    display: none !important;
+}
+table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    overflow: wrap;
+}
+
+table tr td {
+    border: 1px solid black;
+    padding:2mm;
+}
+
+.table-div {
+    margin-bottom: 10mm;
+}
+
+#pt1 .ects {
+    font-weight: bold;
+    border: 2px solid black;
+    text-align: center;
+    width: 15mm;
+}
+
+#ects-value {
+    background-color: #f2f2f2;
+}
+
+#pt2 {
+    background-color: #f2f2f2;
+}
+
+#pt2 table tr td {
+    border:none;
+}
+#pt2 table tr .border-a{
+    border: 1px solid black;
+    text-align: right;
+}
+#pt2 table tr .border-ac{
+    border: 1px solid black;
+    text-align: center;
+}
+#pt2 table tr .border-nr{
+    border:1px solid black;
+    border-right:none;
+}
+
+#pt2 table tr .border-nl{
+    border:1px solid black;
+    border-left: none;
+}
+#pt2 table tr .st-form{
+    min-width: 150px;
+}
+
+#pt3 select{
+    width: 80%;
+    text-align: center;
+}
+.align-right {
+    text-align: right;
+}
+.left-column {
+    width: 45mm;
+}
+.right-columns {
+    width: 20mm;
+    text-align: center;
+}
+#pt4 .right{
+    min-width: 20mm !important;
+    text-align: center;
+}
+
+#pt3 .value-cell{
+    padding:2mm;
+}
+#pt3 .no-border{
+    border:none !important; 
+}
+#pt3 .border-nb{
+    border:1px solid black;
+    border-bottom: none;
+}
+#pt1 .font-size-xl {
+    font-size: 10pt;
+}
+.font-size-l {
+    font-size: 9pt;
+}
+#pt3 .content{
+    width: 110mm;
+}

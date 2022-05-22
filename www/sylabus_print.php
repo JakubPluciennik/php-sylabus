@@ -34,13 +34,13 @@ if (!isset($_POST['submit'])) {
     <div id="printable">
     <main>
         <div id="pt1" class="table-div">
-            <table>
+            <table autosize="1">
                 <tr>
-                    <td class="left-column font-size-12">Nazwa zajęć/
+                    <td class="left-column font-size-xl">Nazwa zajęć/
                         Course title: </td>
-                    <td class="font-size-12"><?php echo isset($_POST["course-title"]) ? $_POST["course-title"] : ''; ?></td>
-                    <td class="ects font-size-12">ECTS</td>
-                    <td id="ects-value" class="ects font-size-12"><?php echo $_POST["ects-val"] ?? ''; ?></td>
+                    <td class="font-size-xl"><?php echo isset($_POST["course-title"]) ? $_POST["course-title"] : ''; ?></td>
+                    <td class="ects font-size-xl">ECTS</td>
+                    <td id="ects-value" class="ects font-size-xl"><?php echo $_POST["ects-val"] ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td class="left-column">Nazwa zajęć w j. angielskim/
@@ -55,7 +55,7 @@ if (!isset($_POST['submit'])) {
             </table>
         </div>
         <div id="pt2" class="table-div">
-            <table>
+            <table autosize="1">
                 <tr>
                     <td class="border-nr left-column" colspan="2">Język kursu/
                         Course language:</td>
@@ -99,7 +99,7 @@ if (!isset($_POST['submit'])) {
             </table>
         </div>
         <div id="pt3" class="table-div">
-            <table>
+            <table autosize="1">
                 <tr>
                     <td colspan="2" class="left-column">Koordynator zajęć/
                         Course coordinator:</td>
@@ -151,7 +151,7 @@ if (!isset($_POST['submit'])) {
                         <td class="border-nb" id="knowledge" class="left-column-outcomes">Wiedza (absolwent zna i rozumie)/
                         Knowledge: (the graduate knows and understands)</td>
                     <td class="value-cell">W1</td>
-                    <td>$w_content</td>
+                    <td class="content">$w_content</td>
                     <td class="right-columns">$w_relation</td>
                     <td class="right-columns">
                         $w_impact
@@ -170,7 +170,7 @@ if (!isset($_POST['submit'])) {
                             <tr>
                             <td class="no-border"></td>
                             <td class="value-cell">W$w_val</td>
-                            <td>$w_content</td>
+                            <td class="content">$w_content</td>
                             <td class="right-columns">$w_relation</td>
                             <td class="right-columns">
                                 $w_impact
@@ -191,7 +191,7 @@ if (!isset($_POST['submit'])) {
                         <td class="border-nb"  id="skills"  class="left-column-outcomes">Umiejętności (absolwent potrafi)/
                         Skills: (the graduate is able to)</td>
                     <td class="value-cell">U1</td>
-                    <td>$u_content</td>
+                    <td class="content">$u_content</td>
                     <td class="right-columns">$u_relation</td>
                     <td class="right-columns">
                         $u_impact
@@ -210,7 +210,7 @@ if (!isset($_POST['submit'])) {
                         <tr>
                         <td class="no-border"></td>
                         <td class="value-cell">U$u_val</td>
-                        <td>$u_content</td>
+                        <td class="content">$u_content</td>
                         <td class="right-columns">$u_relation</td>
                         <td class="right-columns">
                             $u_impact
@@ -231,7 +231,7 @@ if (!isset($_POST['submit'])) {
                             <td class="border-nb"  id="competences"  class="left-column-outcomes">Kompetencje (absolwent jest gotów do)/
                             Competences: (The graduate is ready to)</td>
                             <td class="value-cell">K1</td>
-                            <td>$k_content</td>
+                            <td class="content">$k_content</td>
                             <td class="right-columns">$k_relation</td>
                             <td class="right-columns">
                                 $k_impact
@@ -250,7 +250,7 @@ if (!isset($_POST['submit'])) {
                             <tr>
                             <td class="no-border"></td>
                             <td class="value-cell">K$k_val</td>
-                            <td>$k_content</td>
+                            <td class="content">$k_content</td>
                             <td class="right-columns">$k_relation</td>
                             <td class="right-columns">
                                 $k_impact
@@ -299,26 +299,26 @@ if (!isset($_POST['submit'])) {
                     <td colspan="3"><?php echo $_POST["annotations"] ?? ''; ?></td>
                 </tr>
             </table>
-            <p class="text-below font-size-11">*) 3 – zaawansowany i szczegółowy, 2 – znaczący, 1 – podstawowy/
+            <p class="text-below font-size-l">*) 3 – zaawansowany i szczegółowy, 2 – znaczący, 1 – podstawowy/
                 3 – significant and detailed, 2 – considerable, 1 – basic,</p>
         </div>
         <div id="pt4" class="table-div">
             <p>Wskaźniki ilościowe charakteryzujące moduł/przedmiot/
                 Quantitative summary of the course:</p>
-            <table>
+            <table autosize="1">
                 <tr>
-                    <td class="font-size-11">Szacunkowa sumaryczna liczba godzin pracy studenta (kontaktowych i pracy własnej) niezbędna
+                    <td>Szacunkowa sumaryczna liczba godzin pracy studenta (kontaktowych i pracy własnej) niezbędna
                         dla osiągnięcia zakładanych dla zajęć efektów uczenia się - na tej podstawie należy wypełnić
                         pole ECTS /
                         Estimated number of work hours per student (contact and self-study) essential to achieve the
                         presumed learning outcomes - basis for the calculation of ECTS credits:</td>
-                    <td class="right font-size-12 bold" id="hours"><?php echo $_POST["hours"] ?? ''; ?> h</td>
+                    <td class="right font-size-xl bold" id="hours"><?php echo $_POST["hours"] ?? ''; ?> h</td>
                 </tr>
                 <tr>
-                    <td class="font-size-11">Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
+                    <td>Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
                         udziału nauczycieli akademickich lub innych osób prowadzących zajęcia/
                         Total number of ECTS credits accumulated by the student during contact learning:</td>
-                    <td class="right font-size-12 bold"><?php echo $_POST["ects-val2"] ?? ''; ?> ECTS</td>
+                    <td class="right font-size-xl bold"><?php echo $_POST["ects-val2"] ?? ''; ?> ECTS</td>
                 </tr>
             </table>
         </div>
