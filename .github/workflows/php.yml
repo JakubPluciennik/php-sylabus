@@ -29,21 +29,35 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
       
-    - name: ftp-action-delete-first
-  # You may pin to the exact commit or the version.
-  # uses: hsimah/ftp-action@500e528596313c13b2d6d432c87a5157da32a831
-      uses: hsimah/ftp-action@2.1.0
+    - name: FTP Deploy
+      # You may pin to the exact commit or the version.
+      # uses: SamKirkland/FTP-Deploy-Action@d0aa83872616587eb552bc831bb9166b3f9c5ad5
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        # FTP host
-        host: ftpupload.net
-        # FTP user
-        user: epiz_31595437
-        # FTP password
+        # ftp server
+        server: ftpupload.net
+        # ftp username
+        username: epiz_31595437
+        # ftp password
         password: ${{ secrets.ftp_password }}
-        # Force SSL encryption
-        forceSsl: # optional, default is false
-        # Local directory
-        localDir: # optional, default is .
-        # Remote directory
-        remoteDir: ./htdocs
+        # Server port to connect to (read your web hosts docs)
+        port: # optional
+        # protocol to deploy with - ftp, ftps, or ftps-legacy
+        protocol: # optional
+        # Folder to upload from, must end with trailing slash /
+        local-dir: php-sylabus/
+        # Path to upload to on the server. Must end with trailing slash /
+        server-dir: ./htdocs/
+        # Path and name of the state file - this file is used to track which files have been deployed
+        state-name: # optional
+        # Prints which modifications will be made with current config options, but doesnt actually make any changes
+        dry-run: # optional
+        # Deletes ALL contents of server-dir, even items in excluded with exclude argument
+        dangerous-clean-slate: true
+        # An array of glob patterns, these files will not be included in the publish/delete process
+        exclude: # optional
+        # How verbose should the information be - minimal, standard, or verbose
+        log-level: # optional
+        # strict or loose
+        security: # optional
 
