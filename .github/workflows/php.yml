@@ -28,11 +28,11 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-
-    - name: ftp-action
+      
+    - name: ftp-action-delete-first
   # You may pin to the exact commit or the version.
-  # uses: sebastianpopp/ftp-action@eb75c5cb29d23ee4a729720a27dfb66403cb0f6d
-      uses: sebastianpopp/ftp-action@v2.0.0
+  # uses: hsimah/ftp-action@500e528596313c13b2d6d432c87a5157da32a831
+      uses: hsimah/ftp-action@2.1.0
       with:
         # FTP host
         host: ftpupload.net
@@ -41,8 +41,9 @@ jobs:
         # FTP password
         password: ${{ secrets.ftp_password }}
         # Force SSL encryption
-        forceSsl: false
+        forceSsl: # optional, default is false
         # Local directory
-        localDir: .
+        localDir: # optional, default is .
         # Remote directory
         remoteDir: ./htdocs
+
