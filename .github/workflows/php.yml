@@ -49,11 +49,11 @@ jobs:
         # Path to upload to on the server. Must end with trailing slash /
         server-dir: ./htdocs/
         # Path and name of the state file - this file is used to track which files have been deployed
-        state-name: # optional
+        state-name: ./htdocs/.ftp-deploy-sync-state.json
         # Prints which modifications will be made with current config options, but doesnt actually make any changes
         dry-run: # optional
         # Deletes ALL contents of server-dir, even items in excluded with exclude argument
-        dangerous-clean-slate: true
+        dangerous-clean-slate: false
         # An array of glob patterns, these files will not be included in the publish/delete process
         exclude: # optional
         # How verbose should the information be - minimal, standard, or verbose
