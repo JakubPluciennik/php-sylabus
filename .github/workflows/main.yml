@@ -17,13 +17,14 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    name: Build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@main
 
       # Runs a single command using the runners shell
       - name: FTP Deployment
@@ -36,11 +37,11 @@ jobs:
           # FTP User.
           user: epiz_31595437
           # FTP Password.
-          password: AP2i0gr7LN619
+          password: ${{ secrets.ftp_password }}
           # Local directory.
           local_dir: ./
           # Remote directory.
-          remote_dir: ./htdocs/
+          remote_dir: ./
           # Delete all the files inside of the remote directory.
           delete: true
           # Times that the lftp will be executed if an error occurred.
