@@ -9,16 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../composer_vendor/twbs/bootstrap/dist/css/bootstrap.cosmo.min.css" rel="stylesheet">
     <link rel="stylesheet" href="sylabus.css">
-    <script src="../composer_vendor/tinymce/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-    <script type="text/javascript" src="../composer_vendor/tinymce/tinymce/jquery.tinymce.min.js"></script>
-    <script src="../composer_vendor/components/jquery/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../composer_vendor/tinymce/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script type="text/javascript" src="../composer_vendor/components/jquery/jquery.min.js" type="text/javascript"></script>
     <script>
         //Inicjalizacja TinyMCE
         tinymce.init({
             selector: 'textarea',
             menubar: false,
             statusbar: false,
-            mode: 'textareas',
             plugins: [
                 'autoresize',
                 'lists',
@@ -54,7 +52,6 @@
                 selector: 'textarea',
                 menubar: false,
                 statusbar: false,
-                mode: 'textareas',
                 plugins: [
                     'autoresize',
                     'lists',
@@ -126,52 +123,57 @@
 
     if (isset($_POST)) {
         require 'class/spreadsheet_line.php';
-        $data = unserialize($_POST['serialized_data']);
-        $semester = '';
-        switch ($data->semester) {
-            case 1:
-                $semester = 'I';
-                break;
-            case 2:
-                $semester = 'II';
-                break;
-            case 3:
-                $semester = 'III';
-                break;
-            case 4:
-                $semester = 'IV';
-                break;
-            case 5:
-                $semester = 'V';
-                break;
-            case 6:
-                $semester = 'VI';
-                break;
-            case 7:
-                $semester = 'VII';
-                break;
-            case 8:
-                $semester = 'VIII';
-                break;
-            case 9:
-                $semester = 'IX';
-                break;
-            case 10:
-                $semester = 'X';
-                break;
-            case 11:
-                $semester = 'XI';
-                break;
-            case 12:
-                $semester = 'XII';
-                break;
+
+        if (strlen($_POST['serialized_data']) < 10) {
+            echo '<script>window.location.href = " sylabus_clean.php";</script>';
+        } else {
+            $data = unserialize($_POST['serialized_data']);
+            $semester = '';
+            switch ($data->semester) {
+                case 1:
+                    $semester = 'I';
+                    break;
+                case 2:
+                    $semester = 'II';
+                    break;
+                case 3:
+                    $semester = 'III';
+                    break;
+                case 4:
+                    $semester = 'IV';
+                    break;
+                case 5:
+                    $semester = 'V';
+                    break;
+                case 6:
+                    $semester = 'VI';
+                    break;
+                case 7:
+                    $semester = 'VII';
+                    break;
+                case 8:
+                    $semester = 'VIII';
+                    break;
+                case 9:
+                    $semester = 'IX';
+                    break;
+                case 10:
+                    $semester = 'X';
+                    break;
+                case 11:
+                    $semester = 'XI';
+                    break;
+                case 12:
+                    $semester = 'XII';
+                    break;
+            }
+            $kod = ($data->kod == 'Brak kodu') ? '' : $data->kod;
+            $nazwa = $data->nazwa;
+            $status_zajec1 = $data->status_zajec1;
+            $status_zajec2 = $data->status_zajec2;
+            $liczba_godzin = $data->liczba_godzin;
+            $ects = $data->ects;
         }
-        $kod = ($data->kod == 'Brak kodu') ? '' : $data->kod;
-        $nazwa = $data->nazwa;
-        $status_zajec1 = $data->status_zajec1;
-        $status_zajec2 = $data->status_zajec2;
-        $liczba_godzin = $data->liczba_godzin;
-        $ects = $data->ects;
     } else {
         $kod;
         $nazwa;
@@ -219,10 +221,10 @@
                         <td colspan="3" class="border-nl"><input class="input-text" type="text" name="course-lang"></td>
                         <td colspan="2" class="border-nr">Poziom studiów/
                             Study level:</td>
-                        <td  class="border-nl"><input class="input-text" type="text" name="study-lvl"></td>
+                        <td class="border-nl"><input class="input-text" type="text" name="study-lvl"></td>
                     </tr>
                     <tr>
-                        <td rowspan="2" >Typ studiów/
+                        <td rowspan="2">Typ studiów/
                             Form of studies: </td>
                         <td><input type="radio" name="studies-form" id="stacjonarne" value="stacjonarne"> stacjonarne/
                             intramural</td>
@@ -253,7 +255,7 @@
                         <td id="year" class="border-ac"><input class="input-text" type="text" name="a-year"></td>
                         <td class="align-right border-a">Numer katalogowy/
                             Catalogue number:</td>
-                        <td class="border-ac" id="catalogue-num" ><input class="input-text" type="text" name="catalogue-num" <?php echo "value=\"$kod\" readonly"; ?>></td>
+                        <td class="border-ac" id="catalogue-num"><input class="input-text" type="text" name="catalogue-num" <?php echo "value=\"$kod\" readonly"; ?>></td>
                     </tr>
                 </table>
             </div>
@@ -422,7 +424,7 @@
                 <input class="btn btn-danger" type="reset">
             </div>
             <div id="back">
-            <INPUT type="button" class="btn btn-primary"  value="Powrót" onClick="history.go(-1);">
+                <INPUT type="button" class="btn btn-primary" value="Powrót" onClick="history.go(-1);">
             </div>
         </form>
     </main>

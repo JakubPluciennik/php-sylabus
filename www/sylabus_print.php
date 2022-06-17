@@ -34,19 +34,19 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td class="left-column font-size-xl">Nazwa zajęć/
                         Course title: </td>
-                    <td class="font-size-xl"><?php echo isset($_POST["course-title"]) ? $_POST["course-title"] : ''; ?></td>
+                    <td class="font-size-xl"><?php echo isset($_POST["course-title"]) ?  filter_input(INPUT_POST ,$_POST["course-title"], FILTER_DEFAULT) : ''; ?></td>
                     <td class="ects font-size-xl">ECTS</td>
-                    <td id="ects-value" class="ects font-size-xl"><?php echo $_POST["ects-val"] ?? ''; ?></td>
+                    <td id="ects-value" class="ects font-size-xl"><?php echo filter_input(INPUT_POST ,$_POST["ects-val"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td class="left-column">Nazwa zajęć w j. angielskim/
                         Course title in English: </td>
-                    <td colspan="3"><?php echo $_POST["course-title-eng"] ?? ''; ?></td>
+                    <td colspan="3"><?php echo filter_input(INPUT_POST ,$_POST["course-title-eng"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td class="left-column">Zajęcia dla kierunku studiów/
                         Degree program name: </td>
-                    <td colspan="3"><?php echo $_POST["degree"] ?? ''; ?></td>
+                    <td colspan="3"><?php echo filter_input(INPUT_POST ,$_POST["degree"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
             </table>
         </div>
@@ -55,10 +55,10 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td class="border-nr left-column" colspan="2">Język kursu/
                         Course language:</td>
-                    <td class="border-nl" colspan="3"><?php echo $_POST["course-lang"] ?? ''; ?></td>
+                    <td class="border-nl" colspan="3"><?php echo filter_input(INPUT_POST ,$_POST["course-lang"] , FILTER_DEFAULT) ?? ''; ?></td>
                     <td class="border-nr" colspan="2">Poziom studiów/
                         Study level:</td>
-                    <td class="border-nl"><?php echo $_POST["study-lvl"] ?? ''; ?></td>
+                    <td class="border-nl"><?php echo filter_input(INPUT_POST ,$_POST["study-lvl"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td class="border-nr" rowspan="2">Typ studiów/<br>
@@ -87,10 +87,10 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td class="border-a" colspan="5" class="align-right">Rok akademicki/
                         Academic year:</td>
-                    <td class="border-ac" id="year"><?php echo $_POST["a-year"] ?? ''; ?></td>
+                    <td class="border-ac" id="year"><?php echo filter_input(INPUT_POST ,$_POST["a-year"], FILTER_DEFAULT) ?? ''; ?></td>
                     <td class="border-a" class="align-right">Numer katalogowy/
                         Catalogue number:</td>
-                    <td class="border-ac"><?php echo $_POST["catalogue-num"] ?? ''; ?></td>
+                    <td class="border-ac"><?php echo filter_input(INPUT_POST ,$_POST["catalogue-num"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
             </table>
         </div>
@@ -99,12 +99,12 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td colspan="2" class="left-column">Koordynator zajęć/
                         Course coordinator:</td>
-                    <td colspan="3"><?php echo $_POST["coordinator"] ?? ''; ?></td>
+                    <td colspan="3"><?php echo filter_input(INPUT_POST ,$_POST["coordinator"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Prowadzący zajęcia/
                         Teachers responsible for the course:</td>
-                    <td colspan="3"><?php echo $_POST["responsible-teachers"] ?? ''; ?></td>
+                    <td colspan="3"><?php echo filter_input(INPUT_POST ,$_POST["responsible-teachers"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Założenia, cele i opis zajęć/
@@ -119,12 +119,12 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td colspan="2" class="left-column">Metody dydaktyczne/
                         Teaching methods:</td>
-                    <td colspan="3"><?php echo $_POST["teaching-methods"] ?? ''; ?></td>
+                    <td colspan="3"><?php echo filter_input(INPUT_POST ,$_POST["teaching-methods"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Wymagania formalne i założenia wstępne/
                         Formal requirements and prerequisites</td>
-                    <td colspan="3"><?php echo $_POST["formal-requirements"] ?? ''; ?></td>
+                    <td colspan="3"><?php echo filter_input(INPUT_POST ,$_POST["formal-requirements"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Efekty uczenia się/
@@ -141,7 +141,7 @@ if (!isset($_POST['submit'])) {
                         $w_row = $_POST["W"];
                         $w_count =  count($w_row);
                         $w_content = $w_row[0]['content'] ?: '';
-                        $w_relation = $w_row[0]['relation'] ?: '';
+                        $w_relation = filter_input(INPUT_POST ,$w_row[0]['relation'], FILTER_DEFAULT) ?: '';
                         $w_impact = ($w_row[0]['content'] != '' || $w_row[0]['relation'] != '') ? $w_row[0]['impact'] : '';
                         $row = <<<ROW1
                         <td class="border-nb" id="knowledge" class="left-column-outcomes">Wiedza (absolwent zna i rozumie)/
@@ -159,7 +159,7 @@ if (!isset($_POST['submit'])) {
                     <?php
                     for ($i = 1; $i < $w_count; $i++) {
                         $w_content = $w_row[$i]['content'] ?: '';
-                        $w_relation = $w_row[$i]['relation'] ?: '';
+                        $w_relation = filter_input(INPUT_POST ,$w_row[$i]['relation'], FILTER_DEFAULT) ?: '';
                         $w_impact = ($w_row[$i]['content'] != '' || $w_row[$i]['relation'] != '') ? $w_row[$i]['impact'] : '';
                         $w_val = $i + 1;
                         $row = <<<ROW
@@ -181,7 +181,7 @@ if (!isset($_POST['submit'])) {
                         $u_row = $_POST["U"];
                         $u_count =  count($u_row);
                         $u_content = $u_row[0]['content'] ?: '';
-                        $u_relation = $u_row[0]['relation'] ?: '';
+                        $u_relation = filter_input(INPUT_POST ,$u_row[0]['relation'], FILTER_DEFAULT) ?: '';
                         $u_impact = ($u_row[0]['content'] != '' || $u_row[0]['relation'] != '') ? $u_row[0]['impact'] : '';
                         $row = <<<ROW1
                         <td class="border-nb"  id="skills"  class="left-column-outcomes">Umiejętności (absolwent potrafi)/
@@ -199,7 +199,7 @@ if (!isset($_POST['submit'])) {
                     <?php
                     for ($i = 1; $i < $u_count; $i++) {
                         $u_content = $u_row[$i]['content'] ?: '';
-                        $u_relation = $u_row[$i]['relation'] ?: '';
+                        $u_relation = filter_input(INPUT_POST ,$u_row[$i]['relation'], FILTER_DEFAULT) ?: '';
                         $u_impact = ($u_row[$i]['content'] != '' || $u_row[$i]['relation'] != '') ? $u_row[$i]['impact'] : '';
                         $u_val = $i + 1;
                         $row = <<<ROW
@@ -221,7 +221,7 @@ if (!isset($_POST['submit'])) {
                         $k_row = $_POST["K"];
                         $k_count =  count($k_row);
                         $k_content = $k_row[0]['content'] ?: '';
-                        $k_relation = $k_row[0]['relation'] ?: '';
+                        $k_relation = filter_input(INPUT_POST ,$k_row[0]['relation'], FILTER_DEFAULT) ?: '';
                         $k_impact = ($k_row[0]['content'] != '' || $k_row[0]['relation'] != '') ? $k_row[0]['impact'] : '';
                         $row = <<<ROW1
                             <td class="border-nb"  id="competences"  class="left-column-outcomes">Kompetencje (absolwent jest gotów do)/
@@ -239,7 +239,7 @@ if (!isset($_POST['submit'])) {
                     <?php
                     for ($i = 1; $i < $k_count; $i++) {
                         $k_content = $k_row[$i]['content'] ?: '';
-                        $k_relation = $k_row[$i]['relation'] ?: '';
+                        $k_relation = filter_input(INPUT_POST ,$k_row[$i]['relation'], FILTER_DEFAULT) ?: '';
                         $k_impact = ($k_row[$i]['content'] != '' || $k_row[$i]['relation'] != '') ? $k_row[$i]['impact'] : '';
                         $k_val = $i + 1;
                         $row = <<<ROW
@@ -282,7 +282,7 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td colspan="2" class="left-column">Miejsce realizacji zajęć/
                         Teaching place:</td>
-                    <td colspan="3"><?php echo $_POST["teaching-place"] ?? ''; ?></td>
+                    <td colspan="3"><?php echo filter_input(INPUT_POST ,$_POST["teaching-place"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="left-column">Literatura/
@@ -292,7 +292,7 @@ if (!isset($_POST['submit'])) {
                 <tr>
                     <td colspan="2" class="left-column">UWAGI/
                         ANNOTATIONS </td>
-                    <td colspan="3"><?php echo $_POST["annotations"] ?? ''; ?></td>
+                    <td colspan="3"><?php echo filter_input(INPUT_POST ,$_POST["annotations"], FILTER_DEFAULT) ?? ''; ?></td>
                 </tr>
             </table>
             <p class="text-below font-size-l">*) 3 – zaawansowany i szczegółowy, 2 – znaczący, 1 – podstawowy/
@@ -314,7 +314,7 @@ if (!isset($_POST['submit'])) {
                     <td>Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
                         udziału nauczycieli akademickich lub innych osób prowadzących zajęcia/
                         Total number of ECTS credits accumulated by the student during contact learning:</td>
-                    <td class="right font-size-xl bold"><?php echo $_POST["ects-val2"] ?? ''; ?> ECTS</td>
+                    <td class="right font-size-xl bold"><?php echo filter_input(INPUT_POST ,$_POST["ects-val2"], FILTER_DEFAULT) ?? ''; ?> ECTS</td>
                 </tr>
             </table>
         </div>
