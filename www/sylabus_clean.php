@@ -5,6 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sylabus</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../composer_vendor/twbs/bootstrap/dist/css/bootstrap.cosmo.min.css" rel="stylesheet">
@@ -132,7 +139,7 @@
                             Course title: </td>
                         <td><input class="input-text" type="text" name="course-title"></td>
                         <td class="ects">ECTS</td>
-                        <td id="ects-value" class="ects"><input class="input-text" type="text" name="ects-val" ></td>
+                        <td id="ects-value" class="ects"><input class="input-text" type="text" name="ects-val"></td>
                     </tr>
                     <tr>
                         <td class="left-column">Nazwa zajęć w j. angielskim/
@@ -154,10 +161,10 @@
                         <td colspan="3" class="border-nl"><input class="input-text" type="text" name="course-lang"></td>
                         <td colspan="2" class="border-nr">Poziom studiów/
                             Study level:</td>
-                        <td  class="border-nl"><input class="input-text" type="text" name="study-lvl"></td>
+                        <td class="border-nl"><input class="input-text" type="text" name="study-lvl"></td>
                     </tr>
                     <tr>
-                        <td rowspan="2" >Typ studiów/
+                        <td rowspan="2">Typ studiów/
                             Form of studies: </td>
                         <td><input type="radio" name="studies-form" id="stacjonarne" value="stacjonarne" checked> stacjonarne/
                             intramural</td>
@@ -175,7 +182,7 @@
                     <tr>
                         <td><input type="radio" name="studies-form" id="niestacjonarne" value="niestacjonarne">niestacjonarne/
                             extramural</td>
-                        <td><input type="radio" name="course-status1" id="major" value="major" >kierunkowe/
+                        <td><input type="radio" name="course-status1" id="major" value="major">kierunkowe/
                             major</td>
                         <td><input type="radio" name="course-status2" id="elective" value="elective">do wyboru/
                             elective</td>
@@ -188,7 +195,7 @@
                         <td id="year" class="border-ac"><input class="input-text" type="text" name="a-year"></td>
                         <td class="align-right border-a">Numer katalogowy/
                             Catalogue number:</td>
-                        <td id="catalogue-num"  class="border-ac"><input class="input-text"  type="text" name="catalogue-num" ></td>
+                        <td id="catalogue-num" class="border-ac"><input class="input-text" type="text" name="catalogue-num"></td>
                     </tr>
                 </table>
             </div>
@@ -348,7 +355,7 @@
                         <td>Łączna liczba punktów ECTS, którą student uzyskuje na zajęciach wymagających bezpośredniego
                             udziału nauczycieli akademickich lub innych osób prowadzących zajęcia/
                             Total number of ECTS credits accumulated by the student during contact learning:</td>
-                        <td><input type="text" name="ects-val2" > ECTS</td>
+                        <td><input type="text" name="ects-val2"> ECTS</td>
                     </tr>
                 </table>
             </div>
@@ -357,7 +364,7 @@
                 <input class="btn btn-danger" type="reset">
             </div>
             <div id="back">
-            <INPUT type="button" class="btn btn-primary"  value="Powrót" onClick="history.go(-1);">
+                <INPUT type="button" class="btn btn-primary" value="Powrót" onClick="history.go(-1);">
             </div>
         </form>
     </main>
