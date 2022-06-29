@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4711e17f44f9d5ec6307f0534c6661afeb9b17a0',
+        'reference' => '33397460d3f0fb844c3b2b4008ad2b12ac18bc65',
         'name' => 'pluci/php-sylabus',
         'dev' => true,
     ),
@@ -115,7 +115,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4711e17f44f9d5ec6307f0534c6661afeb9b17a0',
+            'reference' => '33397460d3f0fb844c3b2b4008ad2b12ac18bc65',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
@@ -182,12 +182,12 @@
             'dev_requirement' => false,
         ),
         'tinymce/tinymce' => array(
-            'pretty_version' => '6.0.3',
-            'version' => '6.0.3.0',
+            'pretty_version' => '6.1.0',
+            'version' => '6.1.0.0',
             'type' => 'component',
             'install_path' => __DIR__ . '/../tinymce/tinymce',
             'aliases' => array(),
-            'reference' => '9563ee68e845cc256cc371a6c76a750a4bab7c15',
+            'reference' => 'c6cbe460317484cb45daec0dbabfe4c1d0bf6cc8',
             'dev_requirement' => false,
         ),
         'twbs/bootstrap' => array(
