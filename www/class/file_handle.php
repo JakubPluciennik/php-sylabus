@@ -3,7 +3,7 @@
     use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
     $filedir = '';
-    $type =  $_POST['submit'] ?? '';
+    $type =  $_POST['submit'];
 
     //delete files older than 1 day
     $dir = 'files';

@@ -35,7 +35,10 @@
     <?php
     require 'composer_vendor/autoload.php';
     require 'www/class/spreadsheet_line.php';
-    require 'www/class/file_handle.php';
+    if(isset($_POST['submit'])){
+        require 'www/class/file_handle.php';
+    }
+    
     ?>
 </body>
 
