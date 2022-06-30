@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '33397460d3f0fb844c3b2b4008ad2b12ac18bc65',
+        'reference' => 'ae252f09aef1fc39aa14432e0ddf9dea56c27cc9',
         'name' => 'pluci/php-sylabus',
         'dev' => true,
     ),
@@ -115,7 +115,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '33397460d3f0fb844c3b2b4008ad2b12ac18bc65',
+            'reference' => 'ae252f09aef1fc39aa14432e0ddf9dea56c27cc9',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
