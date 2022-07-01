@@ -78,14 +78,14 @@
                 }
                 $spreadsheet_array = array();
                 foreach ($sheetData as $row) {
-                    $semestr = $row[1];
-                    $kod = $row[2];
+                    $semestr = htmlspecialchars($row[1]);
+                    $kod = htmlspecialchars($row[2]);
 
-                    $nazwa = $row[3];
-                    $status_zajec1 = $row[4];
-                    $status_zajec2 = $row[5];
-                    $liczba_godzin = $row[13];
-                    $ects = $row[$ectsIndex];
+                    $nazwa = htmlspecialchars($row[3]);
+                    $status_zajec1 = htmlspecialchars($row[4]);
+                    $status_zajec2 = htmlspecialchars($row[5]);
+                    $liczba_godzin = htmlspecialchars($row[13]);
+                    $ects = htmlspecialchars($row[$ectsIndex]);
 
                     if ($semestr != '' && $nazwa != '') {
                         if (strlen($kod) > 5 || $kod == null) {
