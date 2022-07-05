@@ -33,12 +33,13 @@
     </main>
     <div class="d-flex align-items-center justify-content-center "><a class="btn btn-warning w-75 mb-2" style="min-width:100px; max-width:640px;" href="www/sylabus_clean.php">Czysty plik</a></div>
     <?php
-    require 'composer_vendor/autoload.php';
-    require 'www/class/spreadsheet_line.php';
-    if(isset($_POST['submit'])){
+
+    if (isset($_POST['submit'])) {
+        require 'composer_vendor/autoload.php';
+        require 'www/class/spreadsheet_line.php';
         require 'www/class/file_handle.php';
     }
-    
+
     ?>
 </body>
 
