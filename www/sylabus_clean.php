@@ -25,7 +25,6 @@
             selector: 'textarea',
             menubar: false,
             statusbar: false,
-            mode: 'textareas',
             plugins: [
                 'autoresize',
                 'lists',

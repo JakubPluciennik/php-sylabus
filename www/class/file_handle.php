@@ -59,7 +59,6 @@
     if ($filedir != '') {
         if (file_exists($filedir)) {
             $spreadsheet = IOFactory::load($filedir);
-            $spreadsheet_all = array();
             echo '<h1 class="text-center" >Wybierz odpowiednią opcję</h1><div class="border d-flex flex-row"> ';
             $i = 1;
             foreach ($spreadsheet->getAllSheets() as $sheet) {
@@ -76,11 +75,9 @@
                         }
                     }
                 }
-                $spreadsheet_array = array();
                 foreach ($sheetData as $row) {
                     $semestr = htmlspecialchars($row[1]);
                     $kod = htmlspecialchars($row[2]);
-
                     $nazwa = htmlspecialchars($row[3]);
                     $status_zajec1 = htmlspecialchars($row[4]);
                     $status_zajec2 = htmlspecialchars($row[5]);

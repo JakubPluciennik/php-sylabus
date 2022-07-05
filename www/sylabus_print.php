@@ -42,7 +42,7 @@ if (!isset($_POST['submit'])) {
                     <tr>
                         <td class="left-column font-size-xl">Nazwa zajęć/
                             Course title: </td>
-                        <td class="font-size-xl"><?php echo isset($_POST["course-title"]) ?  htmlspecialchars($_POST["course-title"]) : ''; ?></td>
+                        <td class="font-size-xl"><?php echo htmlspecialchars($_POST["course-title"]) ?? ''; ?></td>
                         <td class="ects font-size-xl">ECTS</td>
                         <td id="ects-value" class="ects font-size-xl"><?php echo htmlspecialchars($_POST["ects-val"]) ?? ''; ?></td>
                     </tr>
