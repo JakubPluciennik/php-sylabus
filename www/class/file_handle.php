@@ -5,19 +5,21 @@
     $filedir = '';
     $type =  $_POST['submit'];
 
-    //delete files older than 1 day
-    $dir = 'files';
-    $files = scandir($dir);
-    $timeold = time() - (60 * 60 * 24);
-    foreach ($files as $file) {
-        if (is_file($dir . '/' . $file)) {
-            if ($file != 'Informatyka-plan-studiow-2019_20-1.xlsx') {   //plik lokalny - nie usuwamy
-                if (filemtime($dir . '/' . $file) < $timeold) {
-                    unlink($dir . '/' . $file);
-                }
-            }
+    //delete files older than 1 hour
+    $dir = "files/tmp";
+    $timeold = time() - (60 * 60);
+    if(file_exists($dir)){
+    $di = new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS);
+    $ri = new RecursiveIteratorIterator($di, RecursiveIteratorIterator::CHILD_FIRST);
+    foreach ( $ri as $file ) {
+        if(filemtime($dir . '/' . $file) < $timeold)
+        {
+            $file->isDir() ?  rmdir($file) : unlink($file);
         }
     }
+}
+
+
     if ($type == 'upload') {
         if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
             $file = $_FILES['file'];
@@ -54,7 +56,7 @@
         }
     } else if ($type == 'local') {
         echo '<div class="alert alert-success">Wybrano plik lokalny</div>';
-        $filedir = $dir . '/' . 'Informatyka-plan-studiow-2019_20-1.xlsx';
+        $filedir = 'files/' . 'Informatyka-plan-studiow-2019_20-1.xlsx';
     }
     if ($filedir != '') {
         if (file_exists($filedir)) {
