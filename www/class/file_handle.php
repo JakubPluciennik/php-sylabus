@@ -6,13 +6,13 @@
     $type =  $_POST['submit'];
 
     //delete files older than 1 hour
-    $dir = "files/uploaded";
+    $dir = "files\uploaded";
     $timeold = time() - (60 * 60);
     if(file_exists($dir)){
     $di = new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS);
     $ri = new RecursiveIteratorIterator($di, RecursiveIteratorIterator::CHILD_FIRST);
     foreach ( $ri as $file ) {
-        if(filemtime($dir . '/' . $file) < $timeold)
+        if(filemtime($file) < $timeold)
         {
             $file->isDir() ?  rmdir($file) : unlink($file);
         }
