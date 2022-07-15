@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'ae252f09aef1fc39aa14432e0ddf9dea56c27cc9',
+        'reference' => '58d76bbcdf3d1b6d24a47b96440031b7172bee7a',
         'name' => 'pluci/php-sylabus',
         'dev' => true,
     ),
@@ -101,12 +101,12 @@
             'dev_requirement' => false,
         ),
         'phpoffice/phpspreadsheet' => array(
-            'pretty_version' => '1.23.0',
-            'version' => '1.23.0.0',
+            'pretty_version' => '1.24.0',
+            'version' => '1.24.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpoffice/phpspreadsheet',
             'aliases' => array(),
-            'reference' => '21e4cf62699eebf007db28775f7d1554e612ed9e',
+            'reference' => 'ebe8745c92a7cac4514d040758393b5399633b83',
             'dev_requirement' => false,
         ),
         'pluci/php-sylabus' => array(
@@ -115,7 +115,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'ae252f09aef1fc39aa14432e0ddf9dea56c27cc9',
+            'reference' => '58d76bbcdf3d1b6d24a47b96440031b7172bee7a',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
