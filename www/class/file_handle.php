@@ -6,7 +6,7 @@
     $type =  $_POST['submit'];
 
     //delete files older than 1 hour
-    $dir = "files\uploaded";
+    $dir = "files/uploaded";
     $timeold = time() - (60 * 60);
     if(file_exists($dir)){
     $di = new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS);
@@ -56,7 +56,7 @@
         }
     } else if ($type == 'local') {
         echo '<div class="alert alert-success">Wybrano plik lokalny</div>';
-        $filedir = 'files/' . 'Informatyka-plan-studiow-2019_20-1.xlsx';
+        $filedir = 'files/Informatyka-plan-studiow-2019_20-1.xlsx';
     }
     if ($filedir != '') {
         if (file_exists($filedir)) {
