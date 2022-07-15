@@ -61,9 +61,11 @@
             $spreadsheet = IOFactory::load($filedir);
             echo '<h1 class="text-center" >Wybierz odpowiednią opcję</h1><div class="border d-flex flex-row"> ';
             $i = 1;
+            $size = $spreadsheet->getSheetCount();
+            $width = 100/$size;
             foreach ($spreadsheet->getAllSheets() as $sheet) {
                 $sheetName = $sheet->getTitle();
-                echo "<div class=\"col w-25\" id=\"col${i}\"> <h3 class=\"text-center\">$sheetName</h3>";
+                echo "<div class=\"col\" id=\"col${i}\" style=\"width: ${width}% !important;\"> <h3 class=\"text-center\">$sheetName</h3>";
                 $sheetData = $sheet->toArray();
                 //Wyszukiwanie indeksu dla kolumny "ECTS"
                 $ectsIndex = 31;
