@@ -29,6 +29,7 @@ if ($type == 'upload') {
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
         $allowed = array('xlsx', 'xls', 'xml');
+        echo "File error: ".$fileError;
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 1000000) {
