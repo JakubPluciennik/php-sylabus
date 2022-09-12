@@ -6,9 +6,9 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 $filedir = '';
 $type =  $_POST['submit'];
 
-//delete files older than 1 month
+//delete files older than 1 day
 $dir = "files/uploaded";
-$timeold = time() - (60 * 60 * 24 * 30);
+$timeold = time() - (60 * 60 * 24);
 if (file_exists($dir)) {
     $di = new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS);
     $ri = new RecursiveIteratorIterator($di, RecursiveIteratorIterator::CHILD_FIRST);
