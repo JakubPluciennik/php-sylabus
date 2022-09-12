@@ -35,7 +35,7 @@ if ($type == 'upload') {
                 if ($fileSize < 1000000) {
                     $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                     $fileDestination = $dir . '/' . $fileNameNew;
-                    
+                    echo $fileDestination;
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
                         echo '<div class="alert alert-success">Plik został wysłany</div>';
                         $filedir = $fileDestination;
