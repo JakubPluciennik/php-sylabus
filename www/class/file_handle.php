@@ -5,7 +5,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 $filedir = '';
 $type =  $_POST['submit'];
-echo -2;
+
 //delete files older than 1 hour
 $dir = "files/uploaded";
 $timeold = time() - (60 * 60);
@@ -18,7 +18,6 @@ if (file_exists($dir)) {
         }
     }
 }
-echo -1;
 if ($type == 'upload') {
     if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
         $file = $_FILES['file'];
@@ -31,13 +30,11 @@ if ($type == 'upload') {
         $fileActualExt = strtolower(end($fileExt));
         $allowed = array('xlsx', 'xls', 'xml');
         if (in_array($fileActualExt, $allowed)) {
-            echo 0;
             if ($fileError === 0) {
-                echo 2;
                 if ($fileSize < 1000000) {
                     $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                     $fileDestination = $dir . '/' . $fileNameNew;
-                    echo $fileDestination;
+                    
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
                         echo '<div class="alert alert-success">Plik został wysłany</div>';
                         $filedir = $fileDestination;
@@ -61,7 +58,6 @@ if ($type == 'upload') {
     $filedir = 'files/Informatyka-plan-studiow-2019_20-1.xlsx';
 }
 if ($filedir != '') {
-    echo 1;
     if (file_exists($filedir)) {
         $spreadsheet = IOFactory::load($filedir);
         echo '<h1 class="text-center" >Wybierz odpowiednią opcję</h1><div class="border d-flex flex-row"> ';
