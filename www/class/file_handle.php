@@ -7,6 +7,7 @@ $filedir = '';
 $type =  $_POST['submit'];
 
 //delete files older than 1 month
+/*
 $dir = "files/uploaded";
 $timeold = time() - (60*60*24*30);
 if (file_exists($dir)) {
@@ -21,6 +22,7 @@ if (file_exists($dir)) {
         }
     }
 }
+*/
 if ($type == 'upload') {
     if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
         $file = $_FILES['file'];
@@ -35,8 +37,8 @@ if ($type == 'upload') {
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 1000000) {
-                    $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-                    $fileDestination = $dir . '/' . $fileNameNew;
+                    //$fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                    $fileDestination = $fileTmpName .'.'. $fileActualExt;
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
                         echo '<div class="alert alert-success">Plik został wysłany</div>';
                         $filedir = $fileDestination;
